@@ -6,9 +6,13 @@
 using namespace std;
 
 int main(){
-	int a = 8;
-	int b = 10;
+	double a;
+	double b;
+	cout << "Un número";
+	cin >> a;
+	cout << "Otro bnumero";
+	cin >> b;
 	int multi = a + b;
 	
-	cout << "El valor de suam es" << suma;
+	cout << "El valor de su suma es" << multi;
 }
