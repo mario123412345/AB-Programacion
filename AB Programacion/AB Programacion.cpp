@@ -5,8 +5,10 @@
 
 using namespace std;
 
-int main()
-{
-	cout << "I am AM I AM" << endl;
-	return 0;
+int main(){
+	int a = 8;
+	int b = 10;
+	int multi = a + b;
+	
+	cout << "El valor de suam es" << suma;
 }
