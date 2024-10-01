@@ -7,6 +7,6 @@ using namespace std;
 
 int main()
 {
-	cout << "Adios Mundo" << endl;
+	cout << "I am AM I AM" << endl;
 	return 0;
 }
