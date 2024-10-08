@@ -3,16 +3,29 @@
 
 #include "AB Programacion.h"
 
-using namespace std;
 
-int main(){
-	double a;
-	double b;
-	cout << "Un número";
-	cin >> a;
-	cout << "Otro bnumero";
-	cin >> b;
-	int multi = a + b;
-	
-	cout << "El valor de su suma es" << multi;
+
+
+class Persona {
+public:
+	Persona(std::string n, int e) :nombre(n), edad(e) {
+		std::cout << "Se ha creado una persona" << std::endl;
+	}
+	~Persona() {
+		std::cout << "Se ha destruido una persona" << std::endl;
+	}
+	void presentarse() {
+		std::cout << "Hola, soy " << nombre << " y tengo" << edad << " años" << std::endl;
+	}
+private:
+	std::string nombre;
+	int edad;
+
+};
+
+
+int main() {
+	Persona Angel("Angel", 18);
+	Angel.presentarse();
+	return 0;
 }
