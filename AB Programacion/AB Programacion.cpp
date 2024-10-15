@@ -5,8 +5,16 @@
 
 #include <iostream>
 #include <string>
+
+void añadir() {
+	
+
+}
 int main() {
-	for (int n = 1; n <= 100000; n++) {
+	int i;
+	std::cout << "Introduce un número positivo";
+	std::cin >> i;
+	for (int n = 0; n <= i; n++) {
 		std::cout << n<<" ";
 	}
 	std::cout << std::endl;
