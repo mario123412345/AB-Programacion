@@ -11,13 +11,16 @@ void añadir() {
 
 }
 int main() {
-	int i;
-	std::cout << "Introduce un número positivo";
-	std::cin >> i;
-	for (int n = 0; n <= i; n++) {
-		std::cout << n<<" ";
-	}
-	std::cout << std::endl;
+	int n;
+	int factorial = 1;
+	std::cout << "Ingrese un número: ";
+	std::cin >> n;
+	for (int i = 1; i <= n; ++i) {
+		factorial *= i;
+	std::cout << "El factorial de " << n << " es: " << factorial << std::endl;
+		}
 	return 0;
+
+	
 }
 
