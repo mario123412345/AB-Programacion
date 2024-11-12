@@ -6,21 +6,24 @@
 #include <iostream>
 #include <string>
 
-void añadir() {
-	
-
+void numeros(int x, int y) {
+	std::cout << "Hola";
+	int res = x + y;
+	int i = 0;
+	for (i <= res; i++) {
+		std::cout << "Los numeros son: " << i << std::endl;
+	}
+	std::cout << "Hola212";
 }
 int main() {
-	int n;
-	int factorial = 1;
-	std::cout << "Ingrese un número: ";
-	std::cin >> n;
-	for (int i = 1; i <= n; ++i) {
-		factorial *= i;
-	std::cout << "El factorial de " << n << " es: " << factorial << std::endl;
-		}
-	return 0;
+	std::cout << "Introduce un valor: ";
+	int x;
+	std::cin >> x;
+	std::cout << "Introduce otro: ";
+	int y;
+	std::cin >> y;
+	std::cout << "la suma da " << x + y;
+	numeros(x,y);
 
-	
 }
 
