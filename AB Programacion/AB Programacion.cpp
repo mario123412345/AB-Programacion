@@ -6,19 +6,19 @@
 #include <iostream>
 #include <string>
 
+void seriefibonacci() {
+	int sig;
+	int lim;
+	for () {
 
-void tablamultiplicar(int x) {
-	int i;
-	for (int i = 0; i <= 10;i++) {
-		std::cout <<x <<"*"<<i <<"="<< x * i << "\n";
 	}
 }
 int main() {
-	int x;
-	std::cout << "Dame un número: ";
-	std::cin >> x;
-	tablamultiplicar(x);
+	int a = 0;
+	int b = 1;
+	std::cout << "Dima un limite: ";
+	int sig = a + b;
 
-
+	seriefibonacci(a, b);
 }
 
