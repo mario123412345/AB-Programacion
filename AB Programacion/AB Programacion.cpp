@@ -6,19 +6,22 @@
 #include <iostream>
 #include <string>
 
-void seriefibonacci() {
-	int sig;
-	int lim;
-	for () {
+void intercambiar(int& a, int& b) {
+	int temp = a;
+	a = b;
+	b = temp;
 
-	}
 }
 int main() {
-	int a = 0;
-	int b = 1;
-	std::cout << "Dima un limite: ";
-	int sig = a + b;
+	std::cout << "Dame un valor: ";
+	int a;
+	std::cin >> a;
+	int b;
+	std::cout << "Dame otro valor: ";
+	std::cin >> b;
 
-	seriefibonacci(a, b);
+	intercambiar(a, b);
+	std::cout << a << ""<< b;
+
 }
 
