@@ -6,22 +6,19 @@
 #include <iostream>
 #include <string>
 
-void intercambiar(int& a, int& b) {
-	int temp = a;
-	a = b;
-	b = temp;
-
-}
 int main() {
-	std::cout << "Dame un valor: ";
-	int a;
-	std::cin >> a;
-	int b;
-	std::cout << "Dame otro valor: ";
-	std::cin >> b;
-
-	intercambiar(a, b);
-	std::cout << a << ""<< b;
-
+	int n;
+	std::cout << "Dame una cantidad: ";
+	std::cin >> n;
+	int suma=0;
+	for (int i = 0; i < n; i++) {
+		float x;
+		std::cout<<"Ingrese un número: ";
+		std::cin >> x;
+		suma += x;
+	}
+	double media = suma / n;
+	std::cout<< "La meida es "<< media ;
+	
 }
 
