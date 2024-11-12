@@ -6,24 +6,19 @@
 #include <iostream>
 #include <string>
 
-void numeros(int x, int y) {
-	std::cout << "Hola";
-	int res = x + y;
-	int i = 0;
-	for (i <= res; i++) {
-		std::cout << "Los numeros son: " << i << std::endl;
+
+void tablamultiplicar(int x) {
+	int i;
+	for (int i = 0; i <= 10;i++) {
+		std::cout <<x <<"*"<<i <<"="<< x * i << "\n";
 	}
-	std::cout << "Hola212";
 }
 int main() {
-	std::cout << "Introduce un valor: ";
 	int x;
+	std::cout << "Dame un número: ";
 	std::cin >> x;
-	std::cout << "Introduce otro: ";
-	int y;
-	std::cin >> y;
-	std::cout << "la suma da " << x + y;
-	numeros(x,y);
+	tablamultiplicar(x);
+
 
 }
 
