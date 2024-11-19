@@ -6,19 +6,21 @@
 #include <iostream>
 #include <string>
 
-int main() {
-	int n;
-	std::cout << "Dame una cantidad: ";
-	std::cin >> n;
-	int suma=0;
-	for (int i = 0; i < n; i++) {
-		float x;
-		std::cout<<"Ingrese un número: ";
-		std::cin >> x;
-		suma += x;
-	}
-	double media = suma / n;
-	std::cout<< "La meida es "<< media ;
+
+void inicio() {
+	std::cout << "Bienvenido al programa de administracion de Hospital de " << std::endl;
+	std::cout << "Que quieres hacer" << std::endl;
+	std::cout << "Editar--> E" << std::endl;
+	std::cout << "Crear--> C" << std::endl;
+	std::cout << "Eliminar--> E" << std::endl;
+	std::cout << "¿Que quieres hacer?"<<endl;
+
+
+	int E;
+	int C;
+
 	
 }
-
+int main() {
+	inicio();
+}
