@@ -12,12 +12,12 @@ void inicio() {
 	std::cout << "Que quieres hacer" << std::endl;
 	std::cout << "Editar--> E" << std::endl;
 	std::cout << "Crear--> C" << std::endl;
-	std::cout << "Eliminar--> E" << std::endl;
+	std::cout << "Eliminar--> Elim" << std::endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
+	while (true) {
+		cin >> opcion;
 
-
-	int E;
-	int C;
+	}
 
 	
 }
