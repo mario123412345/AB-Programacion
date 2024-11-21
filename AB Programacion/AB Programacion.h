@@ -8,3 +8,11 @@
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
 using namespace std;
+
+void crear();
+void CrearC();
+void CrearD();
+void CrearP();
+
+void editar();
+void eliminar();
