@@ -31,7 +31,9 @@ void inicio() {
 		eliminar();
 	}
 	else {
-		cout << "Error, valor no existente";
+		cout << "Error, valor no existente" << endl;
+		cout << "Reiniciando busqueda" << endl;
+		inicio();
 	}
 
 

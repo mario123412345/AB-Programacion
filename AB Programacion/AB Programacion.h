@@ -9,11 +9,18 @@
 
 using namespace std;
 
+
+void inicio();
 void crear();
 void editar();
 void eliminar();
 void EliminarP();
+void EliminarD();
+void EliminarC();
 void CrearC();
 void CrearD();
 void CrearP();
+void EditarP();
+void EditarD();
+void EditarC();
 
