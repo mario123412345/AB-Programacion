@@ -9,6 +9,7 @@
 
 void inicio() {
 	int op;
+	cout << "----------------------------" << endl;
 	std::cout << "Bienvenido al programa de administracion de Hospital de " << std::endl;
 	std::cout << "Que quieres hacer" << std::endl;
 	std::cout << "Editar --> 1" << std::endl;
@@ -33,6 +34,7 @@ void inicio() {
 	else {
 		cout << "Error, valor no existente" << endl;
 		cout << "Reiniciando busqueda" << endl;
+		cout << "----------------------------" << endl;
 		inicio();
 	}
 

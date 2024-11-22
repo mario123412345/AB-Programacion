@@ -25,6 +25,7 @@ void editar() {
 	else {
 		cout << "Error, valor no existente" << endl;
 		cout << "Reiniciando busqueda" << endl;
+		cout << "----------------------------" << endl;
 		inicio();
 	}
 
