@@ -11,20 +11,23 @@ void inicio() {
 	int op;
 	std::cout << "Bienvenido al programa de administracion de Hospital de " << std::endl;
 	std::cout << "Que quieres hacer" << std::endl;
-	std::cout << "Editar--> 1" << std::endl;
-	std::cout << "Crear--> 2" << std::endl;
-	std::cout << "Eliminar--> 3" << std::endl;
+	std::cout << "Editar --> 1" << std::endl;
+	std::cout << "Crear --> 2" << std::endl;
+	std::cout << "Eliminar --> 3" << std::endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
 
 	if (op == 1) {
+		cout << "Has elegido editar" << endl;
 		editar();
 	}
 	else if (op == 2) {
+		cout << "Has elegido crear" << endl;
 		crear();
 	}
 	else if (op == 3) {
+		cout << "Has elegido eliminar" << endl;
 		eliminar();
 	}
 	else {

@@ -1,5 +1,6 @@
 #include "AB Programacion.h"
 
 void CrearP() {
-	cout<<"Crear paciente"
+	cout << "----------------------------" << endl;
+	cout << "Crear paciente";
 }

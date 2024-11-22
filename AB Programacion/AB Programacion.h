@@ -10,9 +10,10 @@
 using namespace std;
 
 void crear();
+void editar();
+void eliminar();
+void EliminarP();
 void CrearC();
 void CrearD();
 void CrearP();
 
-void editar();
-void eliminar();
