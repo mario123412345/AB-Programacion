@@ -9,6 +9,7 @@ void crear() {
 	cout << "Paciente--> 1"<<endl;
 	cout << "Doctor--> 2" << endl;
 	cout << "Cita --> 3" << endl;
+	cout << "Inicio -->4" << endl;
 	cout << "¿Que quieres crear?" << endl;
 	cin >> crea;
 	if (crea == 1) {
@@ -23,10 +24,13 @@ void crear() {
 		cout << "Has seleccionado crear una nueva cita" << endl;
 		CrearC();
 	}
+	else if (crea == 4) {
+		inicio();
+	}
 	else {
 		cout << "Error, valor no existente" << endl;
 		cout << "Reiniciando busqueda" << endl;
 		cout << "----------------------------" << endl;
-		inicio();
+		crear();
 	}
 }

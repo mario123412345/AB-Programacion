@@ -9,6 +9,7 @@ void eliminar() {
 	cout << "Paciente --> 1" << endl;
 	cout << "Doctor --> 2" << endl;
 	cout << "Cita -->3" << endl;
+	cout << "Inicio --> 4" << endl;
 	cout << "¿Que quieres eliminar?" << endl;
 	cin >> elimi;
 	if (elimi == 1) {
@@ -23,10 +24,13 @@ void eliminar() {
 		cout << "Has seleccionado eliminar una cita" << endl;
 		EliminarC();
 	}
+	else if (elimi == 4){
+		inicio();
+	}
 	else {
 		cout << "Error, valor no existente" << endl;
 		cout << "Reiniciando busqueda" << endl;
 		cout << "----------------------------" << endl;
-		inicio();
+		eliminar();
 	}
 }
