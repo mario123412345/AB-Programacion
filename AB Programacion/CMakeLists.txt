@@ -3,7 +3,7 @@
 #
 
 # Agregue un origen al ejecutable de este proyecto.
-add_executable (CMakeTarget "AB Programacion.cpp" "AB Programacion.h" "Editar.cpp" "Crear.cpp" "CrearP.cpp" "CrearD.cpp" "CrearC.cpp" "EditarP.cpp" "EditarD.cpp" "EditarC.cpp" "EliminarP.cpp" "EliminarD.cpp" "EliminarC.cpp"  "Eliminar.cpp")
+add_executable (CMakeTarget "AB Programacion.cpp" "AB Programacion.h" "Editar.cpp" "Crear.cpp" "CrearP.cpp" "CrearD.cpp" "CrearC.cpp" "EditarP.cpp" "EditarD.cpp" "EditarC.cpp" "EliminarP.cpp" "EliminarD.cpp" "EliminarC.cpp"  "Eliminar.cpp" "Registro.cpp" "registrop.cpp" "registrod.cpp" "registroc.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeTarget PROPERTY CXX_STANDARD 20)

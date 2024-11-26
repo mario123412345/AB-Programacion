@@ -5,6 +5,7 @@
 
 #include <iostream>
 
+
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
 using namespace std;
@@ -23,4 +24,6 @@ void CrearP();
 void EditarP();
 void EditarD();
 void EditarC();
+void visual();
+void registro
 

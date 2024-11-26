@@ -13,3 +13,25 @@ project ("AB Programacion")
 
 # Incluya los subproyectos.
 add_subdirectory ("AB Programacion")
+
+
+cmake_minimum_required(VERSION 3.10)
+
+# Nombre del proyecto
+project(AB_Programacion)
+
+# Agregar los directorios de cabeceras
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# Agregar las bibliotecas
+link_directories(${CMAKE_SOURCE_DIR}/lib64)
+
+# Archivos fuente
+file(GLOB SOURCES "src/*.cpp")
+
+# Crear el ejecutable
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Enlazar bibliotecas necesarias (las de MySQL)
+target_link_libraries(${PROJECT_NAME} mysqlcppconn)
+
