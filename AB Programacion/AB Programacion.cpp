@@ -18,29 +18,25 @@ void inicio() {
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
-
-	if (op == 1) {
-		cout << "Has elegido editar" << endl;
-		editar();
-	}
-	else if (op == 2) {
-		cout << "Has elegido crear" << endl;
-		crear();
-	}
-	else if (op == 3) {
-		cout << "Has elegido eliminar" << endl;
-		eliminar();
-	}
-	else {
-		cout << "Error, valor no existente" << endl;
-		cout << "Reiniciando busqueda" << endl;
-		cout << "----------------------------" << endl;
-		inicio();
+	switch (op) {
+		case 1:
+			cout << "Has elegido editar" << endl;
+			editar();
+			break;
+		case 2:
+			cout << "Has elegido crear" << endl;
+			crear();
+			break;
+		case 3:
+			cout << "Has elegido eliminar" << endl;
+			eliminar();
+			break;
+		default:
+			cout << "opción no válida" << endl;
 	}
 
-
-	
 }
 int main() {
 	inicio();
+	return 0;
 }
