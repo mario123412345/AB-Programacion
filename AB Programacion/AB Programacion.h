@@ -25,5 +25,5 @@ void EditarP();
 void EditarD();
 void EditarC();
 void visual();
-void registro
+void registro();
 
