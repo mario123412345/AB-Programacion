@@ -33,6 +33,7 @@ void inicio() {
 			break;
 		default:
 			cout << "opción no válida" << endl;
+			inicio();
 	}
 
 }
