@@ -18,4 +18,16 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB_Programacion PROPERTY CXX_STANDARD 20)
 endif()
 
+
+# Incluya las cabeceras del conector MySQL
+include_directories(${CMAKE_SOURCE_DIR}/mysql-connector-c++-9.1.0-win64/include)
+
+# Especifique el directorio de las librerías del conector MySQL
+link_directories(${CMAKE_SOURCE_DIR}/mysql-connector-c++-9.1.0-win64/lib64)
+
+# Vincule la librería MySQL al proyecto
+target_link_libraries(AB_Programacion mysqlcppconn8)
+
 # TODO: Agregue pruebas y destinos de instalación si es necesario.
+
+
