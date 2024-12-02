@@ -18,16 +18,19 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB_Programacion PROPERTY CXX_STANDARD 20)
 endif()
 
+#Eliminar estas 3 de abajo por si el proyecto no funciona mientras se intenta configurar el conector sql
+# Configurar las rutas para MySQL Connector
+set(MYSQL_CONNECTOR_DIR "${CMAKE_SOURCE_DIR}/mysql-connector-c++-9.1.0-winx64")
+set(MYSQL_INCLUDE_DIR "${MYSQL_CONNECTOR_DIR}/include")
+set(MYSQL_LIB_DIR "${MYSQL_CONNECTOR_DIR}/lib64")
 
-# Incluya las cabeceras del conector MySQL
-include_directories(${CMAKE_SOURCE_DIR}/mysql-connector-c++-9.1.0-win64/include)
+#Incluir las cabeceras del conector
+include_directories(${MYSQL_INCLUDE_DIR})
 
-# Especifique el directorio de las librerías del conector MySQL
-link_directories(${CMAKE_SOURCE_DIR}/mysql-connector-c++-9.1.0-win64/lib64)
+#Especificar el directorio de las bibliotecas
+link_directories(${MYSQL_LIB_DIR})
 
-# Vincule la librería MySQL al proyecto
+#Vincular la librería MySQL
 target_link_libraries(AB_Programacion mysqlcppconn8)
-
-# TODO: Agregue pruebas y destinos de instalación si es necesario.
 
 
