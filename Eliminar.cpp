@@ -12,25 +12,27 @@ void eliminar() {
 	cout << "Inicio --> 4" << endl;
 	cout << "¿Que quieres eliminar?" << endl;
 	cin >> elimi;
-	if (elimi == 1) {
-		cout << "Has seleccionado eliminar un Paciente" << endl;
-		EliminarP();
-	}
-	else if (elimi == 2) {
-		cout << "Has seleccionado eliminar un doctor" << endl;
-		EliminarD();
-	}
-	else if (elimi == 3) {
-		cout << "Has seleccionado eliminar una cita" << endl;
-		EliminarC();
-	}
-	else if (elimi == 4){
-		inicio();
-	}
-	else {
-		cout << "Error, valor no existente" << endl;
-		cout << "Reiniciando busqueda" << endl;
-		cout << "----------------------------" << endl;
-		eliminar();
-	}
+    switch (elimi) {
+        case 1:
+            cout << "Has seleccionado eliminar un Paciente" << endl;
+            EliminarP();
+            break;
+        case 2:
+            cout << "Has seleccionado eliminar un doctor" << endl;
+            EliminarD();
+            break;
+        case 3:
+            cout << "Has seleccionado eliminar una cita" << endl;
+            EliminarC();
+            break;
+        case 4:
+            inicio();
+            break;
+    default:
+        cout << "Error, valor no existente" << endl;
+        cout << "Reiniciando busqueda" << endl;
+        cout << "----------------------------" << endl;
+        eliminar();
+        break;
+    }
 }

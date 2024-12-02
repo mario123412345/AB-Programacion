@@ -11,26 +11,28 @@ void editar() {
 	cout << "Cita --> 3" << endl;
 	cout << "Inicio -->4" << endl;
 	cin >> ed;
-	if (ed == 1) {
-		cout << "Has seleccionado editar un Paciente" << endl;
+	switch (ed) {
+		case 1:
+			cout << "Has seleccionado editar un Paciente" << endl;
 			EditarP();
-	}
-	else if (ed==2){
-		cout << "Has seleccionado editar un doctor" << endl;
-		EditarD();
-	}
-	else if (ed == 3) {
-		cout << "Has seleccionado editar una cita" << endl;
-		EditarC();
-	}
-	else if (ed == 4){
-		inicio();
-	}
-	else {
+			break;
+		case 2:
+			cout << "Has seleccionado editar un doctor" << endl;
+			EditarD();
+			break;
+		case 3:
+			cout << "Has seleccionado editar una cita" << endl;
+			EditarC();
+			break;
+		case 4:
+			inicio();
+			break;
+	default:
 		cout << "Error, valor no existente" << endl;
 		cout << "Reiniciando busqueda" << endl;
 		cout << "----------------------------" << endl;
 		editar();
-	}
+		break;
+	
 
 }

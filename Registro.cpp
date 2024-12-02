@@ -13,15 +13,20 @@ void visual() {
 	cout << "Doctores --> 2" << endl;
 	cout << "Citas --> 3" << endl;
 	cin>> op;
-	if (op == 1) {
-
-	}
-	else if (op == 2) {
-
-	}
-	else if (op==3){
-	
-	}
-
+    switch (op) {
+        case 1:
+        
+            break;
+        case 2:
+        
+            break;
+        case 3:
+        
+            break;
+    default:
+        cout << "Error" << endl;
+        visual();
+        break;
+    }
 
 }

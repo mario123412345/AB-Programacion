@@ -7,13 +7,17 @@ void CrearD() {
 	cout << "Volver-->1" << endl;
 	cout << "Inicio -->2" << endl;
 	cin >> vol;
-	if (vol == 1) {
-		crear();
-	}else if(vol==2){
-		inicio();
-	}
-	else {
+	switch (vol) {
+		case 1:
+			crear();
+			break;
+		case 2:
+			inicio();
+			break;
+	default:
 		cout << "Error" << endl;
 		CrearD();
+		break;
 	}
+	
 }

@@ -12,25 +12,25 @@ void crear() {
 	cout << "Inicio -->4" << endl;
 	cout << "¿Que quieres crear?" << endl;
 	cin >> crea;
-	if (crea == 1) {
-		cout << "Has seleccionado crear un paciente" << endl;
-		CrearP();
+	switch (crea) {
+		case 1:
+			cout << "Has seleccionado crear un paciente" << endl;
+			CrearP();
+			break;
+		case 2:
+			cout << "Has seleccionado crear un nuevo doctor" << endl;
+			CrearD();
+			break;
+		case 3:
+			cout << "Has seleccionado crear una nueva cita" << endl;
+			CrearC();
+			break;
+		case 4:
+			inicio();
+			break;
+	
+	default:
+		break;
 	}
-	else if (crea == 2) {
-		cout << "Has seleccionado crear un nuevo doctor" << endl;
-		CrearD();
-	}
-	else if (crea == 3) {
-		cout << "Has seleccionado crear una nueva cita" << endl;
-		CrearC();
-	}
-	else if (crea == 4) {
-		inicio();
-	}
-	else {
-		cout << "Error, valor no existente" << endl;
-		cout << "Reiniciando busqueda" << endl;
-		cout << "----------------------------" << endl;
-		crear();
-	}
+	
 }
