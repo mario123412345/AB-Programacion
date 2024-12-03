@@ -27,4 +27,5 @@ void EditarC();
 void visual();
 void registro();
 void doctorc();
+void creardocdetxt();
 

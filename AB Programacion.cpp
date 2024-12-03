@@ -38,6 +38,10 @@ void inicio() {
 
 }
 int main() {
+	creardocdetxt("doctores.txt");
+	creardocdetxt("pacientes.txt");
+	creardocdetxt("citas.txt");
 	inicio();
+	
 	return 0;
 }

@@ -12,7 +12,7 @@ endif()
 project ("AB Programacion")
 
 # Agregue un origen al ejecutable de este proyecto.
-add_executable (AB_Programacion "AB Programacion.cpp" "AB Programacion.h" "Crear.cpp" "CrearC.cpp" "CrearD.cpp" "CrearP.cpp" "Editar.cpp" "EditarC.cpp" "EditarD.cpp" "EditarP.cpp" "Eliminar.cpp" "EliminarC.cpp" "EliminarD.cpp" "EliminarP.cpp" "Registro.cpp" "registroc.cpp" "registrod.cpp" "registrop.cpp" "CrearD2.cpp" )
+add_executable (AB_Programacion "AB Programacion.cpp" "AB Programacion.h" "Crear.cpp" "CrearC.cpp" "CrearD.cpp" "CrearP.cpp" "Editar.cpp" "EditarC.cpp" "EditarD.cpp" "EditarP.cpp" "Eliminar.cpp" "EliminarC.cpp" "EliminarD.cpp" "EliminarP.cpp" "Registro.cpp" "registroc.cpp" "registrod.cpp" "registrop.cpp" "CrearD2.cpp"  "texto.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB_Programacion PROPERTY CXX_STANDARD 20)
