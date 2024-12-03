@@ -4,7 +4,7 @@
 #pragma once
 
 #include <iostream>
-
+#include <fstream>
 
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
@@ -26,4 +26,5 @@ void EditarD();
 void EditarC();
 void visual();
 void registro();
+void doctorc();
 

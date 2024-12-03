@@ -10,7 +10,7 @@
 void inicio() {
 	int op;
 	cout << "----------------------------" << endl;
-	std::cout << "Bienvenido al programa de administracion de Hospital de " << std::endl;
+	std::cout << "Bienvenido al programa de administracion de Hospital de Mario" << std::endl;
 	std::cout << "Que quieres hacer" << std::endl;
 	std::cout << "Editar --> 1" << std::endl;
 	std::cout << "Crear --> 2" << std::endl;
