@@ -29,7 +29,14 @@ void doctorc() {
 	cin >> estado;
 	cout << "Salario doctor: " << endl;
 	cin >> salario;
-
 	
-
+	ofstream archivo("doctores.txt", ios::app);
+		if (archivo.is_open()) {
+			archivo << "ID: " << id << ", "<< "Nombre: " << nombre << ", "<< "Apellido 1: " << apellido1 << ", "<< "Apellido 2: " << apellido2 << ", "<< "especialidad: " << especialidad << ", "<< "Disponibilidad: " << disponibilidad << ", "<< "estado: " << estado << ", "<< "Salario: " << salario << endl;
+			cout << "Doctor creado" << endl;
+		}
+		else {
+			cout << "Error" << endl;
+		}
+		
 }
