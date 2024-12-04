@@ -12,12 +12,12 @@ void doctorc() {
 	string estado;
 	double salario;
 	
-	cout << "ID doctor" << endl;
+	cout << "ID doctor" <<id<< endl;
 	cin>> id;
-	cin.ignore();
-	cout << "Nombre doctor: ";
+
+	cout << "Nombre doctor: "<<nombre<<endl;
 	cin >> nombre;
-	cout << "Apellido 1 doctor: " << endl;
+	cout << "Apellido 1 doctor: " <<apellido1 << endl;
 	cin >> apellido1;
 	cout << "Apellido 2 doctor: " << endl;
 	cin >> apellido2;

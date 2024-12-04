@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <fstream>
-
+#include <string>
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
 using namespace std;
@@ -25,7 +25,8 @@ void EditarP();
 void EditarD();
 void EditarC();
 void visual();
-void registro();
+void registroc();
 void doctorc();
-void creardocdetxt();
+void creardocdetxt(const std::string& nombreArchivo);
+
 
