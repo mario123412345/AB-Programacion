@@ -18,7 +18,8 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB_Programacion PROPERTY CXX_STANDARD 20)
 endif()
 
-#Eliminar estas 3 de abajo por si el proyecto no funciona mientras se intenta configurar el conector sql
+include_directories("${CMAKE_SOURCE_DIR}/include")
+
 # Configurar las rutas para MySQL Connector
 
 
