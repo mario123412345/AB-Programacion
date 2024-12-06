@@ -38,9 +38,9 @@ void inicio() {
 
 }
 int main() {
-	creardocdetxt("doctores.txt");
-	creardocdetxt("pacientes.txt");
-	creardocdetxt("citas.txt");
+	creardocdetxt("doctores.json");
+	creardocdetxt("pacientes.json");
+	creardocdetxt("citas.json");
 	inicio();
 	
 	return 0;

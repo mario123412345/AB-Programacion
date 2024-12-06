@@ -1,14 +1,21 @@
 #include "AB Programacion.h"
 
 
-void creardocdetxt(const std::string& nombreArchivo) {
+void creardocdetxt(const string& nombrearchivo) {
     
-    std::ofstream archivo(nombreArchivo, std::ios::app);
+    ifstream archivo(nombrearchivo);
     if (!archivo.is_open()) {
-        std::cerr << "Error al crear el archivo: " << nombreArchivo << std::endl;
+        ofstream nuevo(nombrearchivo);
+        if (nuevo.is_open()) {
+            nlohmann::json jsonVacio = nlohmann::json::array(); 
+            nuevo << jsonVacio.dump(4);
+            cout << "Archivo creado --> " << nombrearchivo << endl;
+        }
+        else {
+            cout << "Errpr" << endl;
+        }
+    }else {
+        cout << "Archivp ya existe" << endl;
     }
-    else {
-        std::cout << "Archivo creado con éxito: " << nombreArchivo << std::endl;
-    }
-    archivo.close();
+    
 }
