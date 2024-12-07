@@ -30,7 +30,7 @@ void doctorc() {
 	cout << "Salario doctor: " << endl;
 	cin >> salario;
 	
-	std::ifstream archivo("doctores.json");
+	ifstream archivo("doctores.json");
 		nlohmann::json doctoresjson;
 	if (archivo.is_open()) {
 		archivo >> doctoresjson; 
@@ -39,5 +39,18 @@ void doctorc() {
 	else {
 		cout << "Error" << endl;
 	}
+	nlohmann::json doctornuevo(){
+		{"ID", id},{"Nombre", nombre},{"Apellido1", apellido1},{"Apellido2", apellido2},{"Especialidad", especialidad},{"Disponibilidad", disponibilidad},{"Estado", estado },{"Salario", salario}
+	}
+	doctoresjson.push_back(nuevodoc);
+	ofstream archivoSalida("doctores.json");
+	if (archivoSalida.is_open()) {
+		archivoSalida << doctoresjson.dump(4); 
+		cout << "Doctor agregado correctamente" << endl;
+	}
+	else {
+		cerr << "Errot" << endl;
+	}
+
 		
 }
