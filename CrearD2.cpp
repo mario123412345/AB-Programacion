@@ -39,10 +39,10 @@ void doctorc() {
 	else {
 		cout << "Error" << endl;
 	}
-	nlohmann::json doctornuevo(){
+	nlohmann::json doctornuevo={
 		{"ID", id},{"Nombre", nombre},{"Apellido1", apellido1},{"Apellido2", apellido2},{"Especialidad", especialidad},{"Disponibilidad", disponibilidad},{"Estado", estado },{"Salario", salario}
-	}
-	doctoresjson.push_back(nuevodoc);
+	};
+	doctoresjson.push_back(doctornuevo);
 	ofstream archivoSalida("doctores.json");
 	if (archivoSalida.is_open()) {
 		archivoSalida << doctoresjson.dump(4); 
