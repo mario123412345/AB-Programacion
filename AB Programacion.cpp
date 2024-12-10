@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string>
-
+//meter punteros
 
 void inicio() {
 	int op;
@@ -15,6 +15,7 @@ void inicio() {
 	std::cout << "Editar --> 1" << std::endl;
 	std::cout << "Crear --> 2" << std::endl;
 	std::cout << "Eliminar --> 3" << std::endl;
+	cout << "Visualizar -->4" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
@@ -31,6 +32,11 @@ void inicio() {
 			cout << "Has elegido eliminar" << endl;
 			eliminar();
 			break;
+		case 4:
+			cout << "Has elegido visualizar" << endl;
+			visual();
+			break;
+
 		default:
 			cout << "opción no válida" << endl;
 			inicio();

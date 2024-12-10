@@ -15,13 +15,13 @@ void visual() {
 	cin>> op;
     switch (op) {
         case 1:
-        
+            registrop();
             break;
         case 2:
-        
+            registrod();
             break;
         case 3:
-        
+            registroc();
             break;
     default:
         cout << "Error" << endl;

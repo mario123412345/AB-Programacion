@@ -7,10 +7,11 @@
 #include <fstream>
 #include <string>
 #include <json.hpp>
+
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
 using namespace std;
-
+using json = nlohmann::json;
 
 void inicio();
 void crear();
@@ -27,6 +28,8 @@ void EditarD();
 void EditarC();
 void visual();
 void registroc();
+void registrod();
+void registrop();
 void doctorc();
 void creardocdetxt(const std::string& nombreArchivo);
 
