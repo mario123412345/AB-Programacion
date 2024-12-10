@@ -14,6 +14,8 @@ void EliminarD() {
         case 2:
             inicio();
             break;
+
+            break;
     default:
         cout << "Error" << endl;
         EliminarD();

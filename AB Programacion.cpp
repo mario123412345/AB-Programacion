@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 //meter punteros
-
+//Meter un buscador de pacientes/doctores
 void inicio() {
 	int op;
 	cout << "----------------------------" << endl;
@@ -16,6 +16,7 @@ void inicio() {
 	std::cout << "Crear --> 2" << std::endl;
 	std::cout << "Eliminar --> 3" << std::endl;
 	cout << "Visualizar -->4" << endl;
+	cout << "Cerrar-->5" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
@@ -35,6 +36,9 @@ void inicio() {
 		case 4:
 			cout << "Has elegido visualizar" << endl;
 			visual();
+			break;
+		case 5:
+			exit;
 			break;
 
 		default:
