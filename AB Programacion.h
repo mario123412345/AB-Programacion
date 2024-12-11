@@ -19,6 +19,7 @@ void editar();
 void eliminar();
 void EliminarP();
 void EliminarD();
+void deliminar();
 void EliminarC();
 void CrearC();
 void CrearD();
