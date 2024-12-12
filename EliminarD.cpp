@@ -1,36 +1,51 @@
 #include "AB Programacion.h"
 void deliminar() {
-    cout << "ID del doctor quieres eliminar:";
+    cout << "ID del doctor que quieres eliminar: ";
     int ide;
     cin >> ide;
-    cout << "Eliminando doctor" << endl;
     ifstream archivo("doctores.json");
     if (!archivo.is_open()) {
-        cout << "ERROR" << endl;
+        cout << "Error al abrir el archivo doctores.json" << endl;
+        return;
     }
-    json doctores;
-    archivo >> doctores;
+    json doc, doctoreseliminados;
+    archivo >> doc;
     archivo.close();
-    //añadir un booleano?
-        bool doc = false;
-        for (auto it=doctores.begin(); it !=doctores.end(); ++it) {
-            if ((*it)["ID"] == "ID") {
-                doc=true;
-                doctores.erase(it);
-                cout << "Doctor eliminado" << endl;
-                break;
-            }
+    bool enc= false;
+    for (auto it = doc.begin(); it != doc.end(); ++it) {
+        if ((*it)["ID"] == to_string(ide)) {
+            doctoreseliminados.push_back(*it);
+            doc.erase(it);
+            enc= true;
+            cout << "Doctor eliminado" << endl;
+            break;
         }
-        if (!doc) {
-            cout << "Error, el id del doctor no existee" << endl;
-        }
-        ofstream nuevarchivo("doctores.json");
-        if (!nuevarchivo.is_open()) {
-            cout << "Error, volver a intentar";
-        }
-    
-
+    }
+    if (!enc) {
+        cout << "No se encontró ningún doctor con el ID: " << ide << endl;
+        return;
+    }
+    ofstream res("doctores.json");
+    if (!res.is_open()) {
+        cout << "Error al guardar los doctores actualizados en doctores.json" << endl;
+        return;
+    }
+    res << doc.dump(4);
+    res.close();
+    ifstream leereliminados("doctoreselim.json");
+    if (leereliminados.is_open()) {
+        leereliminados >> doctoreseliminados;
+        leereliminados.close();
+    }
+    ofstream elimi("doctoreselim.json");
+    if (!elimi.is_open()) {
+        cout << "Error al guardar los doctores eliminados en doctoreselim.json" << endl;
+        return;
+    }
+    elimi << doctoreseliminados.dump(4);
+    elimi.close();
 }
+
 void EliminarD() {
 	int vol;
 	cout << "----------------------------" << endl;

@@ -6,25 +6,35 @@
 
 
 void registrod() {
-	cout << "Refistro de doctores" << endl;
-	cout << "-----------------------------------" << endl;
-	ifstream archivo("doctores.json");
-	if (!archivo.is_open()) {
-		cout << "Error al abrir el archivo doctores.json" << endl;
-		return;
-	}
-	json doctoresjson;
-	archivo >> doctoresjson;
-	for (const auto& doctor:doctoresjson) {
-		cout << "ID:" << doctor["ID"] << endl;
-		cout << "Nombre: " << doctor["Nombre"];
-		cout<< "Apellido:" << doctor["Apellido1"];
-		cout << "SEgundo apellido:" << doctor["Apellido2"] << endl;;
-		cout << "Especialidad del doctor:" << doctor["Especialidad"];
-		cout << "Disponibilidad: " << doctor["Disponibilidad"];
-		cout << "Estado:" << doctor["Estado"] << endl;
-		cout << "Salario:" << doctor["Salario"] << endl;
-		cout << "-----------------------------------" << endl;
+    cout << "Registro de doctores" << endl;
+    cout << "-----------------------------------" << endl;
 
-	}
+    ifstream archivo("doctores.json");
+    if (!archivo.is_open()) {
+        cout << "Error1" << endl;
+        return;
+    }
+    json doctoresjson;
+    try {
+        archivo >> doctoresjson;
+    }
+    catch (const json::parse_error& e) {
+        cout << "Error2" <<  endl;
+        return;
+    }
+    if (doctoresjson.empty()) {
+        cout << "No hay doctores " << endl;
+        return;
+    }
+    for (const auto& doctor : doctoresjson) {
+        cout << "ID:" << doctor.value("ID", "N/A") << endl;
+        cout << "Nombre: " << doctor.value("Nombre", "N/A") << endl;
+        cout << "Apellido:" << doctor.value("Apellido1", "N/A") << endl;
+        cout << "Segundo apellido: " << doctor.value("Apellido2", "N/A") << endl;
+        cout << "Especialidad del doctor: " << doctor.value("Especialidad", "N/A") << endl;
+        cout << "Disponibilidad: " << doctor.value("Disponibilidad", "N/A") << endl;
+        cout << "Estado: " << doctor.value("Estado", "N/A") << endl;
+        cout << "Salario: " << doctor.value("Salario", "N/A") << endl;
+        cout << "-----------------------------------" << endl;
+    }
 }
