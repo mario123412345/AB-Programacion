@@ -11,6 +11,7 @@ void registrod() {
 	ifstream archivo("doctores.json");
 	if (!archivo.is_open()) {
 		cout << "Error al abrir el archivo doctores.json" << endl;
+		return;
 	}
 	json doctoresjson;
 	archivo >> doctoresjson;

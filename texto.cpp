@@ -15,7 +15,7 @@ void creardocdetxt(const string& nombrearchivo) {
             cout << "Errpr" << endl;
         }
     }else {
-        cout << "Archivp ya existe" << endl;
+        cout << "Archivp "<< nombrearchivo<< "ya existe" << endl;
     }
     
 }

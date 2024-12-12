@@ -51,6 +51,10 @@ int main() {
 	creardocdetxt("doctores.json");
 	creardocdetxt("pacientes.json");
 	creardocdetxt("citas.json");
+	creardocdetxt("doctoreselim.json");
+	creardocdetxt("pacienteselim.json");
+	creardocdetxt("citaselim.json");
+
 	inicio();
 	
 	return 0;

@@ -12,6 +12,22 @@ void deliminar() {
     archivo >> doctores;
     archivo.close();
     //añadir un booleano?
+        bool doc = false;
+        for (auto it=doctores.begin(); it !=doctores.end(); ++it) {
+            if ((*it)["ID"] == "ID") {
+                doc=true;
+                doctores.erase(it);
+                cout << "Doctor eliminado" << endl;
+                break;
+            }
+        }
+        if (!doc) {
+            cout << "Error, el id del doctor no existee" << endl;
+        }
+        ofstream nuevarchivo("doctores.json");
+        if (!nuevarchivo.is_open()) {
+            cout << "Error, volver a intentar";
+        }
     
 
 }
