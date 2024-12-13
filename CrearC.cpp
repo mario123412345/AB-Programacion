@@ -6,6 +6,7 @@ void CrearC() {
 	cout << "Crear Cita";
 	cout << "Volver-->1" << endl;
 	cout << "Inicio -->2" << endl;
+	cout << "Continuar-->3" << endl;
 	cin >> vol;
 	switch (vol) {
 		case 1:
@@ -15,8 +16,8 @@ void CrearC() {
 			inicio();
 			break;
 		case 3:
-			cout << "Error" << endl;
-			CrearC();
+			
+			
 			break;
 		default:
 			CrearC();

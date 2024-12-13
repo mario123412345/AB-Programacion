@@ -5,44 +5,40 @@ void deliminar() {
     cin >> ide;
     ifstream archivo("doctores.json");
     if (!archivo.is_open()) {
-        cout << "Error al abrir el archivo doctores.json" << endl;
+        cout << "ERROR: No se pudo abrir el archivo doctores.json" << endl;
         return;
     }
-    json doc, doctoreseliminados;
-    archivo >> doc;
+    json doctores, doctoreselim;
+    archivo >> doctores;
     archivo.close();
-    bool enc= false;
-    for (auto it = doc.begin(); it != doc.end(); ++it) {
-        if ((*it)["ID"] == to_string(ide)) {
-            doctoreseliminados.push_back(*it);
-            doc.erase(it);
-            enc= true;
-            cout << "Doctor eliminado" << endl;
+
+    bool encontrado = false;
+    for (auto it = doctores.begin(); it != doctores.end(); ++it) {
+        if ((*it)["ID"] == ide) {  
+            doctoreselim.push_back(*it); 
+            doctores.erase(it);          
+            encontrado = true;
+            cout << "Doctor eliminado " << endl;
             break;
         }
     }
-    if (!enc) {
+    if (!encontrado) {
         cout << "No se encontró ningún doctor con el ID: " << ide << endl;
         return;
     }
     ofstream res("doctores.json");
     if (!res.is_open()) {
-        cout << "Error al guardar los doctores actualizados en doctores.json" << endl;
+        cout << "Error1" << endl;
         return;
     }
-    res << doc.dump(4);
+    res << doctores.dump(4);
     res.close();
-    ifstream leereliminados("doctoreselim.json");
-    if (leereliminados.is_open()) {
-        leereliminados >> doctoreseliminados;
-        leereliminados.close();
-    }
-    ofstream elimi("doctoreselim.json");
+    ofstream elimi("doctoreselim.json", ios::app);
     if (!elimi.is_open()) {
-        cout << "Error al guardar los doctores eliminados en doctoreselim.json" << endl;
+        cout << "ERror2" << endl;
         return;
     }
-    elimi << doctoreseliminados.dump(4);
+    elimi << doctoreselim.dump(4);
     elimi.close();
 }
 
