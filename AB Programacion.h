@@ -33,6 +33,7 @@ void registrod();
 void registrop();
 void doctorc();
 void pacientec();
+void citac();
 void creardocdetxt(const std::string& nombreArchivo);
 
 

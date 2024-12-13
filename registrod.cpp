@@ -27,14 +27,14 @@ void registrod() {
         return;
     }
     for (const auto& doctor : doctoresjson) {
-        cout << "ID:" << doctor.value("ID", "N/A") << endl;
-        cout << "Nombre: " << doctor.value("Nombre", "N/A") << endl;
-        cout << "Apellido:" << doctor.value("Apellido1", "N/A") << endl;
-        cout << "Segundo apellido:" << doctor.value("Apellido2", "N/A") << endl;
-        cout << "Especialidad del doctor: " << doctor.value("Especialidad", "N/A") << endl;
-        cout << "Disponibilidad: " << doctor.value("Disponibilidad", "N/A") << endl;
-        cout << "Estado: " << doctor.value("Estado", "N/A") << endl;
-        cout << "Salario: " << doctor.value("Salario", "N/A") << endl;
+        cout << "ID:" << doctor["ID"] << endl;
+        cout << "Nombre:" << doctor["Nombre"] << endl;
+        cout << "Apellido 1:" << doctor["Apellido1"] << endl;
+        cout << "Apellido 2:" << doctor["Apellido2"] << endl;
+        cout << "Especialidad:" << doctor["Especialidad"] << endl;
+        cout << "Disponibilidad:" << doctor["Disponibilidad"] << endl;
+        cout << "Estado:" << doctor["Estado"] << endl;
+        cout << "Salario:" << doctor["Salario"] << endl;
         cout << "-----------------------------------" << endl;
     }
 }

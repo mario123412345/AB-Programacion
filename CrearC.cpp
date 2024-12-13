@@ -1,5 +1,8 @@
 #include "AB Programacion.h"
 
+void citac() {
+	cout << "Creando cita" << endl;
+}
 void CrearC() {
 	int vol;
 	cout << "----------------------------" << endl;
@@ -16,8 +19,7 @@ void CrearC() {
 			inicio();
 			break;
 		case 3:
-			
-			
+			citac();
 			break;
 		default:
 			CrearC();
