@@ -18,12 +18,12 @@ void peliminar() {
         }
 
         bool encontrar = false;
-        for (auto it = pacientes.begin();
-            it != pacientes.end();
-            ++it) {
-            if ((*it)["ID"] == idp) {
-                pacienteselim.push_back(*it);
-                it = pacientes.erase(it);
+        for (auto pac = pacientes.begin();
+            pac != pacientes.end();
+            ++pac) {
+            if ((*pac)["ID"] == idp) {
+                pacienteselim.push_back(*pac);
+                pac = pacientes.erase(pac);
                 cout << "Paciente con el id" << idp << "eliminado"<<endl;
                 encontrar = true;
                 break;
