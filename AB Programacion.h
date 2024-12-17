@@ -28,6 +28,7 @@ void CrearP();
 void EditarP();
 void EditarD();
 void EditarC();
+void peditar();
 void visual();
 void registroc();
 void registrod();

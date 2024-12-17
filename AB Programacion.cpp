@@ -7,6 +7,7 @@
 #include <string>
 //meter punteros
 //Meter un buscador de pacientes/doctores
+//Arreglas que si se introduce una letra en la selección , se genera un bucle infinito
 void inicio() {
 	int op;
 	cout << "----------------------------" << endl;
