@@ -4,7 +4,7 @@ void peditar() {
     int edp;
     cout << "Cual es el id del pacientes que quieres editar?" << endl;
     cin >> edp;
-    ifstream arch("paciente.json");
+    ifstream arch("pacientes.json");
     if (!arch.is_open()) {
         cout << "Error1, archivo de pacientes ya abierto" << endl;
         return;
