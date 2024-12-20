@@ -25,30 +25,39 @@ void peditar() {
             int elect;
             cout << "Que opción quieres editar?";
             cin >> elect;
+            string nuevovalor;
+            
+            getline(cin, nuevovalor);
             switch (elect) {
             case 1:
-                cout << "Cambiar nombre" << endl;
-                cin >> pacient["Nombre"];
+                cout << "Cambiando nombre" << endl;
+                getline(cin, nuevovalor);
+                pacient["Nombre"] = nuevovalor;
             break;
             case 2:
-                cout << "Cambiar apellido1" << endl;
-                cin >> pacient["Apellido1"];
+                cout << "Cambiando apellido1" << endl;
+                getline(cin, nuevovalor);
+                pacient["Apellido1"] = nuevovalor;
                 break;
             case 3:
-                cout << "Cambiar apellido2" << endl;
-                cin >> pacient["Apellido2"];
+                cout << "Cambiando apellido2" << endl;
+                getline(cin, nuevovalor);
+                pacient["Apellido2"] = nuevovalor;
                 break;
             case 4:
-                cout << "Cambiar problema/enfermedad del paciente" << endl;
-                cin >> pacient["Enfermedad"];
+                cout << "Cambiando problema/enfermedad del paciente" << endl;
+                getline(cin, nuevovalor);
+                pacient["Enfermedad"] = nuevovalor;
                 break;
             case 5:
-                cout << "Cambiar la fecha de baja" << endl;
-                cin >> pacient["Fecha baja"];
+                cout << "Cambiando la fecha de baja" << endl;
+                getline(cin, nuevovalor);
+                pacient["Fecha baja"] = nuevovalor;
                 break;
             case 6:
-                cout << "Cambiar la fecha de alta" << endl;
-                cin >> pacient["Fecha alta"];
+                cout << "Cambiando la fecha de alta" << endl;
+                getline(cin, nuevovalor);
+                pacient["Fecha alta"] = nuevovalor;
                 break;
             default:
                 cout << "No se puede editar algo que no existe"<<endl;
@@ -72,7 +81,7 @@ void peditar() {
     nuevarch << paci.dump(4);
     nuevarch.close();
     cout << "Se ha editado al pactiente" << endl;
-
+    
 }
 void EditarP() {
 	int vol;
