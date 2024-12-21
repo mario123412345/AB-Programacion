@@ -17,7 +17,7 @@ void pacientec() {
 	cin >> nombre;
 	cout << "Apellido 1 paciente: " << endl;
 	cin >> apellido1;
-	cout << "Apellido 2paciente: " << endl;
+	cout << "Apellido 2 paciente: " << endl;
 	cin >> apellido2;
 	cout << "Enfermedad paciente: " << endl;
 	cin >> enfermedad;

@@ -11,7 +11,7 @@
 void inicio() {
 	int op;
 	cout << "----------------------------" << endl;
-	std::cout << "Bienvenido al programa de administracion de Hospital de Mario" << std::endl;
+	
 	std::cout << "Que quieres hacer" << std::endl;
 	std::cout << "Editar --> 1" << std::endl;
 	std::cout << "Crear --> 2" << std::endl;
@@ -55,7 +55,7 @@ int main() {
 	creardocdetxt("doctoreselim.json");
 	creardocdetxt("pacienteselim.json");
 	creardocdetxt("citaselim.json");
-
+	cout << "Bienvenido al programa de administracion de Hospital de Mario" << endl;
 	inicio();
 	
 	return 0;
