@@ -38,4 +38,19 @@ void pacientec();
 void citac();
 void creardocdetxt(const std::string& nombreArchivo);
 
+class paciente {
+public:
+	int id;
+	string nombre;
+	string apellido1;
+	string apellido2;
+	string enfermedad;
+	string fechabaja;
+	string fechaalta;
+	paciente(int id, const string& nombre, const string& apellido1,const string& apellido2, const string& enfermedad,const string& fechaalta, const string& fechabaja);
+	void guardarpaciente() const;
+
+	// Método estático para crear un paciente desde la entrada del usuario
+	static paciente crearpaciente();
+};
 
