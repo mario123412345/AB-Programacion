@@ -50,6 +50,7 @@ public:
 	paciente(int id, const string& nombre, const string& apellido1,const string& apellido2, const string& enfermedad,const string& fechaalta, const string& fechabaja);
 	void guardarpaciente() const;
 	static paciente crearpaciente();
+    static void eliminarpaciente(int id);
 };
 
 class doctor {
