@@ -49,8 +49,20 @@ public:
 	string fechaalta;
 	paciente(int id, const string& nombre, const string& apellido1,const string& apellido2, const string& enfermedad,const string& fechaalta, const string& fechabaja);
 	void guardarpaciente() const;
-
-	// Método estático para crear un paciente desde la entrada del usuario
 	static paciente crearpaciente();
 };
 
+class doctor {
+public:
+    int id;
+    string nombre;
+    string apellido1;
+    string apellido2;
+    string especialidad;
+    string disponibilidad;
+    string estado;
+    double salario;
+    doctor(int id, const string& nombre, const string& apellido1, const string& apellido2,const string& especialidad, const string& disponibilidad, const string& estado, double salario);
+    void guardardoctor() const;
+    static doctor creardoctor();
+};

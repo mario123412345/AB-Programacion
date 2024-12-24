@@ -1,6 +1,6 @@
 #include "AB Programacion.h"
 
-void doctorc() {
+/*void doctorc() {
 	cout << "Creando doctor" << endl;
 	//almacenar: id, nombre, apellidos, especialidad, disponibilidad, ¿Despido?, salario
 	int id;
@@ -54,3 +54,4 @@ void doctorc() {
 
 		
 }
+*/
