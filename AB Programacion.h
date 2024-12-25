@@ -51,6 +51,7 @@ public:
 	void guardarpaciente() const;
 	static paciente crearpaciente();
     static void eliminarpaciente(int id);
+    static void editarpaciente(int id);
 };
 
 class doctor {
