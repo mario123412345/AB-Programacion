@@ -46,7 +46,7 @@ void doctor::guardardoctor() const {
 		cin >> especialidad;
 		cout << "Disponibilidad del doctor" << endl;
 		cin >> disponibilidad;
-		cout << "Estado del doctor" << endl;
+		cout << "Estado del doctor(C-Contratado/D-Despedido)" << endl;
 		cin >> estado;
 		cout << "Salario del doctor" << endl;
 		cin >> salario;

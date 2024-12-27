@@ -29,6 +29,7 @@ void EditarP();
 void EditarD();
 void EditarC();
 void peditar();
+void deditar();
 void visual();
 void registroc();
 void registrod();
@@ -50,8 +51,8 @@ public:
 	paciente(int id, const string& nombre, const string& apellido1,const string& apellido2, const string& enfermedad,const string& fechaalta, const string& fechabaja);
 	void guardarpaciente() const;
 	static paciente crearpaciente();
-    static void eliminarpaciente(int id);
-    static void editarpaciente(int id);
+    static void eliminarpaciente(int idp);
+    static void editarpaciente(int edp);
 };
 
 class doctor {
@@ -67,4 +68,6 @@ public:
     doctor(int id, const string& nombre, const string& apellido1, const string& apellido2,const string& especialidad, const string& disponibilidad, const string& estado, double salario);
     void guardardoctor() const;
     static doctor creardoctor();
+    static void eliminardoctor(int idd);
+    static void editardoctor(int edd);
 };
