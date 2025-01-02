@@ -21,6 +21,7 @@ void EliminarP();
 void EliminarD();
 void deliminar();
 void peliminar();
+void celiminar();
 void EliminarC();
 void CrearC();
 void CrearD();
