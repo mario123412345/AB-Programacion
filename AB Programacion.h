@@ -12,34 +12,43 @@
 
 using namespace std;
 using json = nlohmann::json;
-
+//Inicio
 void inicio();
 void crear();
 void editar();
 void eliminar();
+void buscar();
+//Paciente
 void EliminarP();
+void peliminar();
+void CrearP();
+void pacientec();
+void EditarP();
+void peditar();
+void registrop();
+void buscarpaciente();
+//Doctores
 void EliminarD();
 void deliminar();
-void peliminar();
+void CrearD();
+void doctorc();
+void EditarD();
+void deditar();
+void registrod();
+void buscardoctor();
+//Citas
 void celiminar();
 void EliminarC();
 void CrearC();
-void CrearD();
-void CrearP();
-void EditarP();
-void EditarD();
 void EditarC();
-void peditar();
-void deditar();
 void ceditar();
 void visual();
 void registroc();
-void registrod();
-void registrop();
-void doctorc();
-void pacientec();
 void citac();
+
 void creardocdetxt(const std::string& nombreArchivo);
+void buscarcita();
+
 
 class paciente {
 public:

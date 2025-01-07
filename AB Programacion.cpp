@@ -17,7 +17,8 @@ void inicio() {
 	std::cout << "Crear (paciente/doctor/cita)--> 2" << std::endl;
 	std::cout << "Eliminar(paciente/doctor/cita) --> 3" << std::endl;
 	cout << "Registros-->4" << endl;
-	cout << "Cerrar el programa-->5" << endl;
+	cout << "Buscar-->5" << endl;
+	cout << "Cerrar el programa-->6" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
@@ -39,6 +40,10 @@ void inicio() {
 			visual();
 			break;
 		case 5:
+			cout << "Has elegido buscar" << endl;
+			buscar();
+			break;
+		case 6:
 			exit;
 			break;
 
