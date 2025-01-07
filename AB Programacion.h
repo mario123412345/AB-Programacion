@@ -31,6 +31,7 @@ void EditarD();
 void EditarC();
 void peditar();
 void deditar();
+void ceditar();
 void visual();
 void registroc();
 void registrod();
@@ -90,4 +91,4 @@ public:
     static void editarcita(int idc);
 };
 
-//Deberia meter clase privada
+//Deberia meter clase privada?

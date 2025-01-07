@@ -13,11 +13,11 @@ void inicio() {
 	cout << "----------------------------" << endl;
 	
 	std::cout << "Que quieres hacer" << std::endl;
-	std::cout << "Editar --> 1" << std::endl;
-	std::cout << "Crear --> 2" << std::endl;
-	std::cout << "Eliminar --> 3" << std::endl;
-	cout << "Visualizar -->4" << endl;
-	cout << "Cerrar-->5" << endl;
+	std::cout << "Editar(paciente/doctor/cita) --> 1" << std::endl;
+	std::cout << "Crear (paciente/doctor/cita)--> 2" << std::endl;
+	std::cout << "Eliminar(paciente/doctor/cita) --> 3" << std::endl;
+	cout << "Registros-->4" << endl;
+	cout << "Cerrar el programa-->5" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
