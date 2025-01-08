@@ -84,7 +84,7 @@ paciente paciente::crearpaciente() {
 	string fechaalta;
 	string fechabaja;
 
-	cout << "ID paciente" << endl;
+	cout << "ID paciente(No debe repetirse)" << endl;
 	cin >> id;
 	cin.ignore();
 	cout << "Nombre paciente: ";

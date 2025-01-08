@@ -47,7 +47,7 @@ void doctor::editardoctor(int edd) {
                 doctor["Especialidad"] = nuevodato;
                 break;
             case 5:
-                cout << "Cambia la disponibilidad:" << endl;
+                cout << "Cambia la disponibilidad(S/N):" << endl;
                 getline(cin, nuevodato);
                 doctor["Disponibilidad"] = nuevodato;
                 break;

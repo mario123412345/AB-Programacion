@@ -60,7 +60,7 @@ void buscarpaciente() {
 	}
 	case 3:{
 		string buscarporenfermedad;
-		cout << "Introduce la enfermedad del paciente o de los pacientes";
+		cout << "Introduce la enfermedad del paciente o de los pacientes" << endl;
 		cin.ignore();
 		getline(cin, buscarporenfermedad);
 		bool encontrado = false;
