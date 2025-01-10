@@ -2,7 +2,7 @@
 void buscarpaciente() {
 	cout << "Has seleccionado buscar paciente" << endl;
 	ifstream archivo("pacientes.json");
-	if (archivo.is_open()) {
+	if (!archivo.is_open()) {
 		cout << "Error al abrir el archivo" << endl;
 	}
 	json pacientesjson;
@@ -15,6 +15,7 @@ void buscarpaciente() {
 	cout << "3.Enfermedad" << endl;
 	cin >> opcion; 
 	switch (opcion){
+	//Case 1 funciona
 	case 1:{
 		int buscarporid;
 		cout << "Introduce el ID del paciente"<<endl;
@@ -36,6 +37,7 @@ void buscarpaciente() {
 		}
 		break;
 	}
+		  //Case 2 funciona
 	case 2:{
 		string buscarpornombre;
 		cout << "Introduce el nombre del paciente o de los pacientes"<<endl;
@@ -58,6 +60,7 @@ void buscarpaciente() {
 		}
 		break;
 	}
+	//Case 3 funciona
 	case 3:{
 		string buscarporenfermedad;
 		cout << "Introduce la enfermedad del paciente o de los pacientes" << endl;

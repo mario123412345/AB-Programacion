@@ -8,6 +8,7 @@
 
 void visual() {
 	int op;
+    cout << "Aqui puedes ver todo el registro de pacientes/doctores/citas de seguido , si quieres buscar algo especifico ve a la opción de buscar" << endl;
 	cout << "Que quieres visualizar" << endl;
 	cout << "Pacientes --> 1" << endl;
 	cout << "Doctores --> 2" << endl;
