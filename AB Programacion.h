@@ -47,6 +47,8 @@ void registroc();
 void citac();
 
 void creardocdetxt(const std::string& nombreArchivo);
+void backup(const string& archivooriginal);
+void restaurar();
 void buscarcita();
 
 

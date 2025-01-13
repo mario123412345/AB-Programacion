@@ -69,24 +69,33 @@ void paciente::guardarpaciente()const {
 	ofstream archivosalida("pacientes.json");
 	if (archivosalida.is_open()) {
 		archivosalida << pacientesjson.dump(4);
-		cout << "Paciente agregado correctamente" << endl;
+		cout << "Paciente creado correctamente" << endl;
 	}
 	else {
 		cout << "Error" << endl;
 	}
 }
 paciente paciente::crearpaciente() {
-	int id;
+	int id=0;
 	string nombre;
 	string apellido1;
 	string apellido2;
 	string enfermedad;
 	string fechaalta;
 	string fechabaja;
+	ifstream archivo("pacientes.json");
+	json pacientesjson;
+	if (!archivo.is_open()) {
+		cout << "Error al abrir el archivo de pacientes" << endl;
+	} else {
+		archivo >> pacientesjson;
+		archivo.close();
 
-	cout << "ID paciente(No debe repetirse)" << endl;
-	cin >> id;
-	cin.ignore();
+		if (!pacientesjson.empty()){
+			id = pacientesjson.back()["ID"].get<int>()+1;
+		}
+	}
+	cout << "Creando paciente con ID: " << id << endl;
 	cout << "Nombre paciente: ";
 	cin >> nombre;
 	cout << "Apellido 1 paciente: " << endl;
@@ -111,9 +120,9 @@ void CrearP() {
 	int vol;
 	cout << "----------------------------" << endl;
 	cout << "Crear paciente";
-	cout << "Volver-->1" << endl;
-	cout << "Inicio -->2" << endl;
-	cout << "COntinuar-->3" << endl;
+	cout << "1.Volver" << endl;
+	cout << "2.Inicio" << endl;
+	cout << "3.COntinuar" << endl;
 	cin >> vol;
 	switch (vol) {
 		case 1:

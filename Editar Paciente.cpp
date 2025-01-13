@@ -158,7 +158,7 @@ void paciente::editarpaciente(int edp) {
     if (!nuevarch) {
         cout << "Errpr al guardar" << endl;
     }
-    cout << "Si veo esto funciona y se guarda" << endl;
+    cout << "Se han guardado los cambios" << endl;
     nuevarch << paci.dump(4);
     nuevarch.close();
 }

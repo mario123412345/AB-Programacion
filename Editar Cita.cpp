@@ -33,7 +33,7 @@ void cita::editarcita(int idc) {
             cout << "1.Fecha de la cita" << cita["Fecha"]<<endl;
             cout << "2.Hora de la cita " << cita["Hora"]<<endl;
             int idpaciente = cita["IDpac"];
-            auto pacienteencontrado = std::find_if(pacientes.begin(), pacientes.end(),
+            auto pacienteencontrado = find_if(pacientes.begin(), pacientes.end(),
                 [idpaciente](const json& paciente) {
                     return paciente["ID"] == idpaciente;
                 });
@@ -49,7 +49,7 @@ void cita::editarcita(int idc) {
                 cout << "Ha habido un problema, no hay ya pacientes con id"<<idpaciente <<"Puede haberse eliminado por error" << endl;
             }
             int iddoctor = cita["IDdoc"];
-            auto doctorencontrado = std::find_if(doctores.begin(), doctores.end(),
+            auto doctorencontrado = find_if(doctores.begin(), doctores.end(),
                 [iddoctor](const json& doctor) {
                     return doctor["ID"] == iddoctor;
                 });

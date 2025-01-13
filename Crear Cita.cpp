@@ -29,10 +29,20 @@ cita cita ::crearcita() {
 	string hora;
 	int idp;
 	int idd;
+	ifstream archivo("citas.json");
+	json citasjson;
+	if (!archivo.is_open()) {
+		cout << "Error al abrir el archivo de citas" << endl;
+	}
+	else {
+		archivo >> citasjson;
+		archivo.close();
 
-	cout << "ID cita" << endl;
-	cin >> id;
-	cin.ignore();
+		if (!citasjson.empty()) {
+			id = citasjson.back()["ID"].get<int>() + 1;
+		}
+	}
+	cout << "Creando cita con ID: " << id << endl;
 	cout << "Fecha de la cita(dd/mm/año): ";
 	cin >> fecha;
 	cout << "Hora de la cita: " << endl;

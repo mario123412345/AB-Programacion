@@ -31,11 +31,7 @@ void buscarcita() {
 	cout << "2.Buscar por fecha" << endl;
 	cout << "3.Buscar por hora(24h)" << endl;
 	cout << "4.Buscar por el ID del paciente" << endl;
-	cout << "5.Buscar por el nombre paciente" << endl;
-	cout << "6.Buscar por la enfermedad paciente" << endl;
-	cout << "7.Buscar por el ID del doctor" << endl;
-	cout << "8.Buscar por el nombre del doctor" << endl;
-	cout << "9.Buscar por la especialidad del doctor" << endl;
+	cout << "5.Buscar por el ID del doctor" << endl;
 	cin >> opcion;
 	switch (opcion) {
 	//Buscar las citas ppor el id de la cita
@@ -48,6 +44,7 @@ void buscarcita() {
 		bool encontrado = false;
 		for (const auto& cita : citasjson) {
 			if (cita["ID"] == buscarporid) {
+				cout << "----------------------------------------" << endl;
 				cout << "Cita con ID " << buscarporid << "encontrada" << endl;
 				cout << "Fecha " << cita["Fecha"] << endl;
 				cout << "Hora " << cita["Hora"] << endl;
@@ -101,6 +98,7 @@ void buscarcita() {
 		bool encontrar = false;
 		for (const auto& cita : citasjson) {
 			if (cita["Fecha"] == buscarporfecha) {
+				cout << "----------------------------------------" << endl;
 				cout << "Cita con fecha " << buscarporfecha << "encontrada" << endl;
 				cout << "ID cita " << cita["ID"] << endl;
 				cout << "Hora " << cita["Hora"] << endl;
@@ -154,6 +152,7 @@ void buscarcita() {
 		bool encontrar = false;
 		for (const auto& cita : citasjson) {
 			if (cita["Hora"] == horacita) {
+				cout << "----------------------------------------" << endl;
 				cout << "Cita con hora " << horacita << " horas encontrada" << endl;
 				cout << "ID cita " << cita["ID"] << endl;
 				cout << "Fecha " << cita["Fecha"] << endl;
@@ -206,6 +205,7 @@ void buscarcita() {
 		for (const auto& cita : citasjson) {
 			if (cita["IDpac"] == buscaridpaciente) {
 				encontrarcita = true;
+				cout << "----------------------------------------" << endl;
 				cout << "Citas encontrada por medio del paciente con id" << buscaridpaciente << endl;
 				cout << "ID de la cita" << cita["ID"] << endl;
 				cout << "Fecha de la cita" << cita["Fecha"] << endl;
@@ -248,145 +248,63 @@ void buscarcita() {
 		cout << "----------------------------------------" << endl;
 		break;
 	}
-		  /*
-	//Buscar cita por el nombre de un paciente o de varios si tienen el mismo nombre
-		  //Funciona pero debo implementar mejoras en la visualización y el orden
+	
+	//Buscar citas en base al id del doctor
 	case 5: {
-		cout << "Busca todas las citas de uno o varios pacientes con un nombre" << endl;
-		string nombrepaciente;
-		cout << "Escribe el nombre del o los paciente/es de los que quieras encontrar citas:";
-		cin.ignore();
-		getline(cin, nombrepaciente);
-		cout << "----------------------------------------" << endl;
-		bool encontrarpaciente = false;
-		for (const auto& paciente : pacientes) {
-			if (nombrepaciente == paciente["Nombre"]) {
-				encontrarpaciente = true;
-				cout << "Citas encontradas con el nombre de paciente:" << nombrepaciente<< endl;
-				bool encontrarcita = false;
-				for (const auto& cita : citasjson) {
-					int idpaciente = paciente["ID"];
-					if (paciente["ID"] == cita["IDpac"]) {
-						encontrarcita = true;
-						cout << "ID de la cita" << cita["ID"] << endl;
-						cout << "Fecha de la cita(dia/mes/año)" << cita["Fecha"] << endl;
-						cout << "Hora de la cita(24h)" << cita["Hora"] << endl;
-						cout << "ID del paciente" << paciente["ID"] << endl;
-						cout << "Apellidos del paciente" << paciente["Apellido1"] << paciente["Apellido2"] << endl;
-						cout << "Enfermedad del paciente" << paciente["Enfermedad"] << endl;
-						int iddoctor = cita["IDdoc"];
-						bool encontrardoctor = false;
-						for (const auto& doctor : doctores) {
-							if (doctor["ID"] == iddoctor) {
-								encontrardoctor = true;
-								cout << "ID del doctor" << doctor["ID"] << endl;
-								cout << "Nombre del doctor" << doctor["Nombre"] << endl;
-								cout << "Apellidos del doctor" << doctor["Apellido1"] << doctor["Apellido2"] << endl;
-								cout << "Especialidad del doctor " << doctor["Especialidad"] << endl;
-								break;
-							}
-						}
-						if (!encontrardoctor) {
-							cout << "No se ha encontrado al doctor asociado con esta cita." << endl;
-						}
-					}
-				}
-				if (!encontrarcita) {
-					cout << "No se han encontrado citas para este paciente:"<<nombrepaciente << endl;
-				}
-			}
-		}
-		if (!encontrarpaciente) {
-			cout << "No se ha encontrado ningún paciente con el nombre: " << nombrepaciente << "revisa las mayusculas o minusculas o que este bien escrito" << endl;
-		}
-		cout << "----------------------------------------" << endl;
-		break;
-	}
-	//Buscar cita en base a la enfermedad del/los paciente/es(Una enfermedad puede esytar en varios pacientes)
-	case 6: {
-		cout << "Busca citas por la enfermedad del paciente" << endl;
-		string enfermedadpaciente;
-		cout << "Escribe la enfermedad del o los paciente/es de los que quieras encontrar citas(Ten cuidado con mayusculas y minusculas):";
-		cin.ignore();
-		getline(cin, enfermedadpaciente);
-		cout << "----------------------------------------" << endl;
-		bool encontrarpaciente = false;
-		for (const auto& paciente : pacientes) {
-			if(enfermedadpaciente==paciente["Enfermedad"]){
-				encontrarpaciente = true;
-				cout << "Citas encontradas de pacientes con esta enfermedad:" << enfermedadpaciente << endl;
-				bool encontrarcita = false;
-				for (const auto& cita : citasjson){
-					if (cita["IDpac"] == paciente["ID"]) {
-						encontrarcita = true;
-						cout << "ID de la cita" << cita["ID"] << endl;
-						cout << "Fecha de la cita(dia/mes/año)" << cita["Fecha"] << endl;
-						cout << "Hora de la cita(24h)" << cita["Hora"] << endl;
-						cout << "ID del paciente" << paciente["ID"] << endl;
-						cout << "Nombre del paciente" << paciente["Nombre"] << endl;
-						cout << "Apellidos del paciente" << paciente["Apellido1"] << paciente["Apellido2"] << endl;
-						int iddoctor = cita["IDdoc"];
-						bool encontrardoctor = false;
-						for (const auto& doctor : doctores) {
-							if (iddoctor = doctor["ID"]) {
-								encontrardoctor = true;
-								cout << "ID del doctor:" << doctor["ID"] << endl;
-								cout << "Nombre del doctor" << doctor["Nombre"] << endl;
-								cout << "Apellidos del doctor" << doctor["Apellido1"] << doctor["Apellido2"] << endl;
-								cout << "Especialidad del doctor" << doctor["Especialidad"] << endl;
-							}
-						}
-						if (!encontrardoctor) {
-							cout << "No se he encontrado ningun doctor, es posible que se haya eliminado" << endl;
-						}
-					}
-					if (!encontrarcita) {
-						cout << "No se ha encontrado ninguna cita que involucre la enfermedad" << endl;
-					}
-				}
-			}
-			if (!encontrarpaciente) {
-				cout << "No se ha encontrado ningun paciente con esta enfermedad:" << enfermedadpaciente << ",revisa las mayusculas o minusculas o que estye bien escrito" << endl;
-			}
-		}
-		cout << "----------------------------------------" << endl;
-		break;
-	}
-	//Buscar cita por el id de un doctor(Un doctor puede tener varias citas)
-	case 7: {
-		cout << "Busca citas que tiene un doctor por su ID" << endl;
+		cout << "Busca las citas que tiene un doctor por su id" << endl;
 		int buscariddoctor;
-		cout << "Introduce el id del doctor del que quieres buscar citas:";
+		cout << "Introduce el ID del doctor del que quieres ver las citas:";
 		cin >> buscariddoctor;
+		cout << "----------------------------------------" << endl;
 		bool encontrarcita = false;
 		for (const auto& cita : citasjson) {
-			if (buscariddoctor == cita["IDdoc"]) {
-				cout << "Citas encontradas con ID de doctor " << buscariddoctor << endl;
+			if (cita["IDdoc"] == buscariddoctor) {
+				encontrarcita = true;
+				cout << "----------------------------------------" << endl;
+				cout << "Citas encontrada por medio del doctor con id" << buscariddoctor << endl;
 				cout << "ID de la cita" << cita["ID"] << endl;
 				cout << "Fecha de la cita" << cita["Fecha"] << endl;
-				cout << "Hora de la cita" << cita["Hora"] << endl;
+				cout << "Hora de la cita(24h)" << cita["Hora"] << endl;
 				int idpaciente = cita["IDpac"];
 				bool encontrarpaciente = false;
 				for (const auto& paciente : pacientes) {
-					cout << "ID del paciente" << paciente["ID"] << endl;
-					cout << "Nombre del paciente" << paciente["Nombre"] << endl;
-					cout << "Apellidos del paciente"<<paciente["Apellid1"]<<paciente["Apellido2"];
-					cout << "Enfermedad del paciente" << paciente["Enfermedad"] << endl;
+					if (paciente["ID"] == idpaciente) {
+						cout << "ID del paciente:" << paciente["ID"] << endl;
+						cout << "Nombre del paciente" << paciente["Nombre"] << endl;
+						cout << "Apellidos del paciente" << paciente["Apellido1"] << paciente["Apellido2"] << endl;
+						cout << "Enfermedad del paciente" << paciente["Enfermedad"] << endl;
+						encontrarpaciente = true;
+						break;
+					}
+				}
+				if (!encontrarpaciente) {
+					cout << "No se encontró la información del paciente con ID" <<idpaciente << ", puede que haya sido eliminado" << endl;
+				}
+				int iddoctor = cita["IDdoc"];
+				bool encontrardoctor = false;
+				for (const auto& doctor : doctores) {
+					if (doctor["ID"] == iddoctor) {
+						cout << "Información del docctor" << endl;
+						cout << "ID del doctor" << doctor["ID"] << endl;
+						cout << "Nombre del doctor" << doctor["Nombre"] << endl;
+						cout << "Apellidos del doctor" << doctor["Apellido1"] << doctor["Apellido2"] << endl;
+						cout << "Especialidad " << doctor["Especialidad"] << endl;
+						encontrardoctor = true;
+						break;
+					}
+				}
+				if (!encontrardoctor) {
+					cout << "No se encontró la información del doctor con ID" << iddoctor << "puede que haya sido eliminado" << endl;
 				}
 			}
 		}
-		break;
-	}*/
-	//Buscar citas en base al nombre del doctor
-	case 8: {
-		cout << "Busca las citas que tienen uno o varios doctores por su nombre" << endl;
-		break;
-	}
-	//Buscar cita en base a la especialidad de el/lso doctores(Una especialidad se puede tener por varios doctores)
-	case 9: {
-		cout << "Busca citas en base a la especialidad de uno o varios doctores" << endl;
+		if (!encontrarcita) {
+			cout << "No se encontraron citas para el doctor con ID " << buscariddoctor << endl;
+		}
+		cout << "----------------------------------------" << endl;
 		break;
 	}
+	
 	default:
 		cout << "Selecciona una opción valida" << endl;
 		break;

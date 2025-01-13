@@ -12,13 +12,14 @@ void inicio() {
 	int op;
 	cout << "----------------------------" << endl;
 	
-	std::cout << "Que quieres hacer" << std::endl;
-	std::cout << "Editar(paciente/doctor/cita) --> 1" << std::endl;
-	std::cout << "Crear (paciente/doctor/cita)--> 2" << std::endl;
-	std::cout << "Eliminar(paciente/doctor/cita) --> 3" << std::endl;
-	cout << "Registros-->4" << endl;
-	cout << "Buscar-->5" << endl;
-	cout << "Cerrar el programa-->6" << endl;
+	cout << "Que quieres hacer" << endl;
+	cout << "1.Editar(paciente/doctor/cita)" << endl;
+	cout << "2.Crear (paciente/doctor/cita)" << endl;
+	cout << "3.Eliminar(paciente/doctor/cita)" << endl;
+	cout << "4.Registros" << endl;
+	cout << "5.Buscar" << endl;
+	cout << "6.Restaurar desde un backup" << endl;
+	cout << "7.Cerrar el programa" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
 	cin >> op;
@@ -44,6 +45,9 @@ void inicio() {
 			buscar();
 			break;
 		case 6:
+			cout << "Has elegido restaurar" << endl;
+			restaurar();
+		case 7:
 			exit;
 			break;
 
@@ -60,6 +64,9 @@ int main() {
 	creardocdetxt("doctoreselim.json");
 	creardocdetxt("pacienteselim.json");
 	creardocdetxt("citaselim.json");
+	backup("doctores.json");
+	backup("pacientes.json");
+	backup("citas.json");
 	cout << "Bienvenido al programa de administracion de Hospital de Mario" << endl;
 	inicio();
 	
