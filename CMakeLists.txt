@@ -12,7 +12,7 @@ endif()
 project ("AB Programacion")
 
 # Agregue un origen al ejecutable de este proyecto.
-add_executable (AB_Programacion "AB Programacion.cpp" "AB Programacion.h" "Crear.cpp" "Crear Cita.cpp" "Crear Doctor.cpp" "Crear Paciente.cpp" "Editar.cpp" "Editar Cita.cpp" "Editar Doctor.cpp" "Editar Paciente.cpp" "Eliminar.cpp" "Eliminar Cita.cpp" "Eliminar Doctor.cpp" "Eliminar Paciente.cpp" "Registro.cpp" "Registro Citas.cpp" "Registro Doctores.cpp" "Registro Pacientes.cpp" "Crear Doctor 2.cpp"  "Crear documentos de texto.cpp" "registroelimp.cpp" "registroelimd.cpp"  "Buscar.cpp" "Buscar paciente.cpp" "Buscar doctor.cpp" "Buscar cita.cpp"  "Restaurar.cpp")
+add_executable (AB_Programacion "AB Programacion.cpp" "AB Programacion.h" "Crear.cpp" "Crear Cita.cpp" "Crear Doctor.cpp" "Crear Paciente.cpp" "Editar.cpp" "Editar Cita.cpp" "Editar Doctor.cpp" "Editar Paciente.cpp" "Eliminar.cpp" "Eliminar Cita.cpp" "Eliminar Doctor.cpp" "Eliminar Paciente.cpp" "Registro.cpp" "Registro Citas.cpp" "Registro Doctores.cpp" "Registro Pacientes.cpp" "Crear Doctor 2.cpp"  "Crear documentos de texto.cpp" "registroelimp.cpp" "registroelimd.cpp"  "Buscar.cpp" "Buscar paciente.cpp" "Buscar doctor.cpp" "Buscar cita.cpp"  "Restaurar.cpp" "Reporte.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB_Programacion PROPERTY CXX_STANDARD 20)

@@ -7,6 +7,9 @@
 #include <fstream>
 #include <string>
 #include <json.hpp>
+#include <sstream>
+#include <ctime>
+#include <vector>
 
 // TODO: Haga referencia aquí a los encabezados adicionales que el programa requiere.
 
@@ -48,10 +51,13 @@ void citac();
 
 void creardocdetxt(const std::string& nombreArchivo);
 void backup(const string& archivooriginal);
-void restaurar();
+void restaurar(const string& archivooriginal);
 void buscarcita();
+void menureportes();
+bool enfermedadcronica(const string enfermedad);
 
 
+void citaspendientes();
 class paciente {
 public:
 	int id;
@@ -67,6 +73,8 @@ public:
 	static paciente crearpaciente();
     static void eliminarpaciente(int idp);
     static void editarpaciente(int edp);
+    static void reportepacientes(const string& fechainicio, const string& fechafinal);
+    static void reporteenfermedadescronicas();
 };
 
 class doctor {

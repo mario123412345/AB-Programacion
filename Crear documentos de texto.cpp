@@ -24,19 +24,23 @@ void backup(const string& archivooriginal) {
     string archivobackup = "backup_" + archivooriginal;
     ifstream archivo(archivooriginal);
     if (archivo.is_open()) {
-        ofstream nuevobackup(archivobackup);
-        if (nuevobackup.is_open()) {
-            json contenidoarchivo;
-            archivo >> contenidoarchivo;
-            nuevobackup << contenidoarchivo.dump(4);
-            cout << "Backup " << archivobackup <<"actualizado" << endl;
+        json contenidoarchivo;
+        archivo >> contenidoarchivo;
+        if (contenidoarchivo.empty()) {
+            cout << "El archivo original" << archivooriginal << "esta vacio" << endl;
         }
         else {
-            cout << "Error al crear el archivo de backup" << archivobackup << endl;
+            ofstream nuevobackup(archivobackup);
+            if (nuevobackup.is_open()) {
+                nuevobackup << contenidoarchivo.dump(4);
+                cout << "Backup de" << archivooriginal << "ha sido actualizado" << endl;
+            }
+            else {
+                cout << "Error al crear el backup" << archivobackup << endl;
+            }
         }
     }
     else {
-        cout<<"Error al conseguir la información del archivo original"<< archivooriginal<<endl;
-
+        cout << "Error al abrir el archivo original" << archivooriginal << endl;
     }
 }

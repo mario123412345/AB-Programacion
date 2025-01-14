@@ -24,7 +24,7 @@ void doctor::guardardoctor() const {
 	}
 }
 	doctor doctor::creardoctor() {
-		int id=0;
+		int id=1;
 		string nombre;
 		string apellido1;
 		string apellido2;

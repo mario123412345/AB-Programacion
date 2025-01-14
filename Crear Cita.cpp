@@ -24,7 +24,7 @@ void cita::guardarcita() const {
 	}
 }
 cita cita ::crearcita() {
-	int id;
+	int id=1;
 	string fecha;
 	string hora;
 	int idp;
@@ -37,7 +37,6 @@ cita cita ::crearcita() {
 	else {
 		archivo >> citasjson;
 		archivo.close();
-
 		if (!citasjson.empty()) {
 			id = citasjson.back()["ID"].get<int>() + 1;
 		}

@@ -28,6 +28,8 @@ void buscarpaciente() {
 				cout << "Apellido1 " << paciente["Apellido1"] << endl;
 				cout << "Apellido2:" << paciente["Apellido2"] << endl;
 				cout << "Enfermedad:" << paciente["Enfermedad"] << endl;
+				cout << "Fecha de baja" << paciente["Fecha baja"] << endl;
+				cout << "Fecha de alta" << paciente["Fecha alta"] << endl;
 				encontrado = true;
 				break;
 			}

@@ -5,25 +5,24 @@
 
 #include <iostream>
 #include <string>
-//meter punteros
 //Meter un buscador de pacientes/doctores
 //Arreglas que si se introduce una letra en la selección , se genera un bucle infinito
 void inicio() {
-	int op;
+	int opcion;
 	cout << "----------------------------" << endl;
 	
-	cout << "Que quieres hacer" << endl;
-	cout << "1.Editar(paciente/doctor/cita)" << endl;
-	cout << "2.Crear (paciente/doctor/cita)" << endl;
-	cout << "3.Eliminar(paciente/doctor/cita)" << endl;
+	cout << "¿Que quieres hacer ahora?" << endl;
+	cout << "1.Editar" << endl;
+	cout << "2.Crear" << endl;
+	cout << "3.Eliminar" << endl;
 	cout << "4.Registros" << endl;
 	cout << "5.Buscar" << endl;
-	cout << "6.Restaurar desde un backup" << endl;
+	cout << "6.Generar reporte" << endl;
 	cout << "7.Cerrar el programa" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
 	
-	cin >> op;
-	switch (op) {
+	cin >> opcion;
+	switch (opcion) {
 		case 1:
 			cout << "Has elegido editar" << endl;
 			editar();
@@ -45,8 +44,8 @@ void inicio() {
 			buscar();
 			break;
 		case 6:
-			cout << "Has elegido restaurar" << endl;
-			restaurar();
+			menureportes();
+			break;
 		case 7:
 			exit;
 			break;
@@ -67,6 +66,10 @@ int main() {
 	backup("doctores.json");
 	backup("pacientes.json");
 	backup("citas.json");
+	restaurar("doctores.json");
+	restaurar("pacientes.json");
+	restaurar("citas.json");
+	cout << "---------------------------------" << endl;
 	cout << "Bienvenido al programa de administracion de Hospital de Mario" << endl;
 	inicio();
 	
