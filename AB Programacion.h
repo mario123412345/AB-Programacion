@@ -56,7 +56,7 @@ void buscarcita();
 void menureportes();
 bool enfermedadcronica(const string enfermedad);
 
-
+void citasespecialidad();
 void citaspendientes();
 class paciente {
 public:

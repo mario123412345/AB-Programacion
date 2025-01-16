@@ -1,82 +1,168 @@
 #include "AB Programacion.h"
 //Reporte de pacientes en un rango de fecha
-//Funciona
+
 tm convertirfecha(const string& fecha) {
 	tm tmFecha = {};
 	istringstream ss(fecha);
 	ss >>get_time(&tmFecha, "%d/%m/%Y");  
 	if (ss.fail()) {
 		cerr << "Error al convertir la fecha" << endl;
+		tmFecha = {};
 	}
 	return tmFecha;
 }
-bool compararFechas(const string& fecha1,const string& fecha2){
-	tm tmFecha1=convertirfecha(fecha1);
-	tm tmFecha2=convertirfecha(fecha2);
-	time_t t1=mktime(&tmFecha1);
-	time_t t2=mktime(&tmFecha2);
-	return t1<=t2;
-}
-void paciente::reportepacientes(const string& fechainicio,const string&fechafinal) {
+
+void paciente::reportepacientes(const string& fechainicio, const string& fechafinal) {
 	ifstream archivo("pacientes.json");
 	if (!archivo.is_open()) {
-		cout << "Error al abrir el archivo de pacientes" << endl;
+		cerr << "Error al abrir el archivo de pacientes" << endl;
+		return;
 	}
 	json pacientesjson;
 	archivo >> pacientesjson;
 	archivo.close();
-	cout << "Pacientes atendidos entre la fecha" << fechainicio << "y" << fechafinal << endl;
+	tm tmInicio = convertirfecha(fechainicio);
+	tm tmFinal = convertirfecha(fechafinal);
+	if (tmInicio.tm_year ==0 || tmFinal.tm_year==0) {
+		cerr << "Fecha o fechas introducidas no son valiidas" << endl;
+		return;
+	}
+	time_t tInicio = mktime(&tmInicio);
+	time_t tFinal = mktime(&tmFinal);
+	cout << "Pacientes atendidos entre"<<fechainicio<<"y"<<fechafinal<< endl;
+	bool encontrado = false;
 	for (const auto& paciente : pacientesjson) {
-		string fechaalta = paciente["Fecha alta"];
-		if (fechaalta >= fechainicio && fechaalta <= fechafinal) {
-			cout << "ID" << paciente["ID"] << endl;
-			cout << "Nombre" << paciente["Nombre"] << endl;
-			cout << "Apellidos" << paciente["Apellido1"] << paciente["Apellido2"] << endl;
-			cout << "Enfermedad" << paciente["Enfermedad"] << endl;
-			cout << "------------------------------" << endl;
+		if (!paciente.contains("Fecha alta") || !paciente.contains("Fecha baja")) {
+			cerr << "Error,el paciente con ID"<<paciente["ID"]<<"no tiene fechas válidas" << endl;
+			continue;
 		}
+		string fechaalta=paciente["Fecha alta"];
+		string fechabaja=paciente["Fecha baja"];
+		tm tmFechaAlta = convertirfecha(fechaalta);
+		tm tmFechaBaja = convertirfecha(fechabaja);
+		if (tmFechaAlta.tm_year==0 || tmFechaBaja.tm_year==0) {
+			cerr << "Error al convertir las fechas del paciente con ID"<<paciente["ID"] << endl;
+			continue;
+		}
+		time_t tFechaAlta = mktime(&tmFechaAlta);
+		time_t tFechaBaja = mktime(&tmFechaBaja);
+		if (tFechaAlta <= tFinal && tFechaBaja >= tInicio) {
+			cout << "ID: " << paciente["ID"] << endl;
+			cout << "Nombre: " << paciente["Nombre"] << endl;
+			cout << "Apellidos: " << paciente["Apellido1"] << " " << paciente["Apellido2"] << endl;
+			cout << "Enfermedad: " << paciente["Enfermedad"] << endl;
+			cout << "Fecha de Alta: " << paciente["Fecha alta"] << endl;
+			cout << "Fecha de Baja: " << fechabaja << endl;
+			cout << "-----------------------------------------" << endl;
+			encontrado = true;
+		}
+	}
+
+	if (!encontrado) {
+		cout << "No se encontraron pacientes en el rango de fechas especificado." << endl;
 	}
 }
 //Citas pendientes por medico
-
-string fechaactual() {
-	time_t now = time(0);
-	tm* ltm = localtime(&now);
-	char fecha[10];  
-	strftime(fecha, sizeof(fecha),"%d/%m/%Y",ltm);
-	return string(fecha);
-}
 void citaspendientes() {
-	ifstream archivo("citas.json");
-	if (!archivo.is_open()) {
+	ifstream archivocitas("citas.json");
+	if (!archivocitas.is_open()) {
 		cout << "Error al abrir el archivo de citas" << endl;
 	}
+	ifstream archivodoctores("doctores.json");
+	if (!archivodoctores.is_open()) {
+		cout << "Error al abrir el archivo de doctores" << endl;
+	}
+	json doctoresjson;
+	archivodoctores >> doctoresjson;
+	archivodoctores.close();
 	json citasjson;
-	archivo >> citasjson;
-	archivo.close();
-	string fechahoy = fechaactual();
+	archivocitas >> citasjson;
+	archivocitas.close();
+	string fechahoy;
+	cout << "Esscribe la fecha actual(dia/mes/año)";
+	cin >> fechahoy;
+	if (fechahoy.length() != 10 || fechahoy[2] != '/' || fechahoy[5] != '/') {
+		cout << "La fecha debe seguir este orden dd/mm/yyyy." << endl;
+	}
 	tm tmfechahoy = convertirfecha(fechahoy);
-	map<string, vector<json>> citasmedico;
-	for (const auto& cita : citasjson) {
-		string fechacita = cita["Fecha"];
-		tm tmfechacita = convertirfecha(fechacita);
+	map<int, vector<json>> citaspendientesmedico;
+	for (const auto& cita:citasjson) {
+		string fechacita=cita["Fecha"];
+		tm tmfechacita=convertirfecha(fechacita);
 		time_t t1 = mktime(&tmfechahoy);
 		time_t t2 = mktime(&tmfechacita);
 		if (t2 > t1) {
-			string idmedico=cita["idd"]; 
-			citasmedico[idmedico].push_back(cita);
+			int iddoctor=cita["IDdoc"];
+			citaspendientesmedico[iddoctor].push_back(cita);
 		}
 	}
 	cout << "Citas pendientes por médico:" << endl;
-	for (const auto& entry : citasmedico) {
-		cout << "ID del medico: " << entry.first << endl;
-		for (const auto& cita : entry.second) {
-			cout << "ID dela cita" << cita["ID_cita"] << endl;
-			cout << "Fecha de la cita" << cita["Fecha"] << endl;
+	for (const auto& doctor : doctoresjson) {
+		int iddoctor = doctor["ID"];
+		string nombredoctor = doctor["Nombre"];
+		string apellido1doctor = doctor["Apellido1"];
+		string apellido2doctor = doctor["Apellido2"];
+		string especialidad = doctor["Especialidad"];
+		if (citaspendientesmedico.count(iddoctor)) {
+			cout << "Doctor: " << nombredoctor << " " << apellido1doctor << " " << apellido2doctor << endl;
+			cout << "Especialidad: " << especialidad << endl;
 			cout << "-------------------------------------------" << endl;
+			for (const auto& cita : citaspendientesmedico[iddoctor]) {
+				cout << "  ID de la cita " << cita["ID"] << endl;
+				cout << "  Fecha de la cita " << cita["Fecha"] << endl;
+				cout << "  Hora de la cita" << cita["Hora"] << endl;
+				cout << "  ID del paciente" << cita["IDpac"] << endl;
+				cout << "-------------------------------------------" << endl;
+			}
 		}
 	}
 }
+//Reporte citas pendientes por especialidad
+void citasespecialidad() {
+	ifstream archivodoctores("doctores.json");
+	if (!archivodoctores.is_open()) {
+		cout << "Error al abrir el archivo de doctores" << endl;
+		return;
+	}
+	ifstream archivocitas("citas.json");
+	if (!archivocitas.is_open()) {
+		cout << "Error al abrir el archivo de citas" << endl;
+		return;
+	}
+	json doctoresjson;
+	json citasjson;
+	archivodoctores >> doctoresjson;
+	archivocitas >> citasjson;
+	archivodoctores.close();
+	archivocitas.close();
+	map<string, vector<string>> citasporespecialidad;
+	for (const auto& doctor : doctoresjson) {
+		string especialidad = doctor["Especialidad"];
+		string nombredoctor = doctor["Nombre"];
+		string apellido1doctor = doctor["Apellido1"];
+		string apellido2doctor = doctor["Apellido2"];
+		for (const auto& cita : citasjson) {
+			int iddoctor = cita["IDdoc"];  
+			int idpaciente = cita["IDpac"];  
+			string fechacita = cita["Fecha"];
+			string horacita = cita["Hora"];
+			if (iddoctor == doctor["ID"]) {
+				string citadetalle = "ID del paciente" + to_string(idpaciente) + ", fecha de la cita" + fechacita +
+					", hora de la cita" + horacita + ", datos del doctor:" + nombredoctor + " " + apellido1doctor + " " + apellido2doctor;
+				citasporespecialidad[especialidad].push_back(citadetalle);
+			}
+		}
+	}
+	cout << "Reporte de citas pendientes por especialidad" << endl;
+	for (const auto& especialidad : citasporespecialidad) {
+		cout << "Especialidad" << especialidad.first << endl;
+		for (const auto& cita : especialidad.second) {
+			cout << cita << endl;
+		}
+		cout << "-------------------------------" << endl;
+	}
+}
+
 //Reporte enfermedades cronicas
 bool enfermedadcronica(const string enfermedad) {
 	vector enfermedadescronicas = { "Diabetes","diabetes","Cancer","cancer","Hipertension","hipertension","Asma","asma" };
@@ -122,12 +208,15 @@ void menureportes() {
 		paciente::reportepacientes(fechainicio, fechafinal);
 	}
 		break;
+		//funciona
 	case 2:{
 		citaspendientes();
 	}
 		break;
-	case 3:
-
+		//Funciona
+	case 3: {
+		citasespecialidad();
+	}
 		break;
 		//funciona 
 	case 4: {
