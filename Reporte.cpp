@@ -195,7 +195,17 @@ void menureportes() {
 	cout << "3.Citas pendientes por especialidad" << endl;
 	cout << "4.Reporte de pacientes con enfermedades crónicas" << endl;
 	int seleccion;
-	cin >> seleccion;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> seleccion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (seleccion){
 		//funciona
 	case 1: {

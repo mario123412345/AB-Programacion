@@ -11,7 +11,17 @@ void crear() {
 	cout << "Cita --> 3" << endl;
 	cout << "Inicio -->4" << endl;
 	cout << "¿Que quieres crear?" << endl;
-	cin >> crea;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> crea && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (crea) {
 		case 1:
 			cout << "Has seleccionado crear un paciente" << endl;

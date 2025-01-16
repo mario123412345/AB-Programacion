@@ -22,7 +22,17 @@ void doctor::editardoctor(int edd) {
             cout << "7.Salario del doctor" << doctor["Salario"] << endl;
             int elect;
             cout << "Que opción quieres editar?";
-            cin >> elect;
+            while (true) {
+                string input;
+                cin >> input;
+                stringstream ss(input);
+                if (ss >> elect && ss.eof()) {
+                    break;
+                }
+                else {
+                    cout << "Esscribe un numero valido ";
+                }
+            }
             string nuevodato;
             getline(cin, nuevodato);
             switch (elect) {
@@ -96,7 +106,17 @@ void EditarD() {
 	cout << "Volver-->1" << endl;
 	cout << "Inicio -->2" << endl;
     cout << "Continuar-->3" << endl;
-	cin >> vol;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> vol && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
     switch (vol) {
     case 1:
         cout << "Regresando al menú anterior..." << endl;

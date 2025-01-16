@@ -11,7 +11,17 @@ void eliminar() {
 	cout << "Cita -->3" << endl;
 	cout << "Inicio --> 4" << endl;
 	cout << "¿Que quieres eliminar?" << endl;
-	cin >> elimi;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> elimi && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
     switch (elimi) {
         case 1:
             cout << "Has seleccionado eliminar un Paciente" << endl;

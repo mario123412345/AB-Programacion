@@ -10,7 +10,17 @@ void editar() {
 	cout << "Doctor --> 2" << endl;
 	cout << "Cita --> 3" << endl;
 	cout << "Inicio -->4" << endl;
-	cin >> ed;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> ed && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (ed) {
 	case 1:
 		cout << "Has seleccionado editar un Paciente" << endl;

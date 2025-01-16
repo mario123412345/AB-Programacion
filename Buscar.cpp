@@ -6,7 +6,17 @@ void buscar() {
 	cout << "2.Doctores" << endl;
 	cout << "3.Citas" << endl;
 	int eleccion;
-	cin >> eleccion;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> eleccion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (eleccion){
 	case 1:
 		buscarpaciente();

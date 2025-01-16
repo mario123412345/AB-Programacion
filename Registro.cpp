@@ -13,7 +13,17 @@ void visual() {
 	cout << "Pacientes --> 1" << endl;
 	cout << "Doctores --> 2" << endl;
 	cout << "Citas --> 3" << endl;
-	cin>> op;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> op && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
     switch (op) {
         case 1:
             registrop();

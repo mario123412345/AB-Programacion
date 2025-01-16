@@ -104,7 +104,17 @@ void paciente::editarpaciente(int edp) {
             cout << "6.Fecha alta paciente:(dia/mes/año) " << pacient["Fecha alta"] << endl;
             int elect;
             cout << "Que opción quieres editar?";
-            cin >> elect;
+            while (true) {
+                string input;
+                cin >> input;
+                stringstream ss(input);
+                if (ss >> elect && ss.eof()) {
+                    break;
+                }
+                else {
+                    cout << "Esscribe un numero valido ";
+                }
+            }
             string nuevovalor;
 
             getline(cin, nuevovalor);

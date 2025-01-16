@@ -70,7 +70,17 @@ void cita::editarcita(int idc) {
             auto nuevopaciente = pacientes.end();
             auto nuevodoctor = doctores.end();
             cout << "Elige que opción quieres editar" << endl;
-            cin >> eleccion;
+            while (true) {
+                string input;
+                cin >> input;
+                stringstream ss(input);
+                if (ss >> eleccion && ss.eof()) {
+                    break;
+                }
+                else {
+                    cout << "Esscribe un numero valido ";
+                }
+            }
             switch (eleccion) {
                 case 1:
                     cout << "Escribe la nueva fecha(dd/mm/año) abajo" << endl;
@@ -154,7 +164,18 @@ void EditarC() {
 	cout << "Para editar una" << endl;
 	cout << "Volver a la sección anterior(Selecciona que se quiere editar)-->1" << endl;
 	cout << "Volver al inicio -->2" << endl;
-	cin>> vol;
+    cout << "3.Continuar" << endl;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> vol && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
     switch (vol) {
         case 1:
             editar();

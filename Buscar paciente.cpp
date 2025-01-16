@@ -13,7 +13,17 @@ void buscarpaciente() {
 	cout << "1.ID" << endl;
 	cout << "2.Nombre" << endl;
 	cout << "3.Enfermedad" << endl;
-	cin >> opcion; 
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (opcion){
 	//Case 1 funciona
 	case 1:{

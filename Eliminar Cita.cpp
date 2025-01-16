@@ -21,7 +21,7 @@ void cita::eliminarcita(int idc) {
         if ((*enc)["ID"] == idc) {
             citaselim.push_back(*enc);
             enc = citas.erase(enc);
-            cout << "Cita con el id : " << idc << "se ha eliminado" << endl;
+            cout << "Cita con el id" << idc << "se ha eliminado" << endl;
             encontrar = true;
             break;
         }
@@ -55,7 +55,17 @@ void EliminarC() {
 	cout << "Volver-->1" << endl;
 	cout << "Inicio -->2" << endl;
     cout << "Continuar-->3" << endl;
-	cin >> vol;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> vol && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
     switch (vol) {
         case 1:
             eliminar();

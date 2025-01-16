@@ -20,8 +20,17 @@ void inicio() {
 	cout << "6.Generar reporte" << endl;
 	cout << "7.Cerrar el programa" << endl;
 	std::cout << "¿Que quieres hacer?"<<endl;
-	
-	cin >> opcion;
+	while (true) { 
+		string input;
+		cin >> input;  
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {  
+			break;  
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (opcion) {
 		case 1:
 			cout << "Has elegido editar" << endl;

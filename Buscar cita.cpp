@@ -32,7 +32,17 @@ void buscarcita() {
 	cout << "3.Buscar por hora(24h)" << endl;
 	cout << "4.Buscar por el ID del paciente" << endl;
 	cout << "5.Buscar por el ID del doctor" << endl;
-	cin >> opcion;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (opcion) {
 	//Buscar las citas ppor el id de la cita
 		//Funciona

@@ -14,7 +14,17 @@ void buscardoctor() {
 	cout << "1.ID" << endl;
 	cout << "2.Nombre" << endl;
 	cout << "3.Especialidad" << endl;
-	cin >> opcion;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (opcion) {
 	case 1: {
 		int buscarporid;
