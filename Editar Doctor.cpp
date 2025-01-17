@@ -3,7 +3,7 @@
 void doctor::editardoctor(int edd) {
     ifstream archivo("doctores.json");
     if (!archivo.is_open()) {
-        cout << "Error1, archivo de doctores no pudo abrirse" << endl;
+        cout << "Error,el archivo de doctores no pudo abrirse" << endl;
         return;
     }
     json doctores;
@@ -18,7 +18,7 @@ void doctor::editardoctor(int edd) {
             cout << "3.Apellido 2 del doctor: " << doctor["Apellido2"] << endl;
             cout << "4.Especialidad del doctor: " << doctor["Especialidad"] << endl;
             cout << "5.Disponibilidad del doctor" << doctor["Disponibilidad"] << endl;
-            cout << "6.Estado del doctor(C-Contratado/D-Despedido) " << doctor["Estado"] << endl;
+            cout << "6.Estado del doctor(C-Contratado/D-Despedido)"<<doctor["Estado"] << endl;
             cout << "7.Salario del doctor" << doctor["Salario"] << endl;
             int elect;
             cout << "Que opción quieres editar?";

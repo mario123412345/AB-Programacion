@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-void registroc() {
+void cita::registroc() {
     cout << "Registro de citas" << endl;
     cout << "-----------------------------------" << endl;
     ifstream archivo("citas.json");

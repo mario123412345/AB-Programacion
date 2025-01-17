@@ -5,7 +5,7 @@
 #include <string>
 
 
-void registrod() {
+void doctor::registrod() {
     cout << "Registro de doctores" << endl;
     cout << "-----------------------------------" << endl;
 

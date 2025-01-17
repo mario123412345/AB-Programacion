@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-void registrop() {
+void paciente::registrop() {
         cout << "Registro de pacientes" << endl;
         cout << "-----------------------------------" << endl;
         ifstream archivo("pacientes.json");

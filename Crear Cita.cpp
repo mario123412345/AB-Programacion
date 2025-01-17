@@ -9,7 +9,7 @@ void cita::guardarcita() const {
 		archivo.close();
 	}
 	else {
-		cout << "Error1" << endl;
+		cout << "Error al abrir el archivo de citas.json" << endl;
 	}
 	nlohmann::json nuevacita = { {"ID",id},{"Fecha",fecha},{"Hora",hora},{"IDpac",idp},{"IDdoc",idd}
 	};
@@ -20,7 +20,7 @@ void cita::guardarcita() const {
 		cout << "Cita creada" << endl;
 	}
 	else {
-		cout << "Error2" << endl;
+		cout << "Error al guardar la cita" << endl;
 	}
 }
 cita cita ::crearcita() {
@@ -117,9 +117,9 @@ void CrearC() {
 	int vol;
 	cout << "----------------------------" << endl;
 	cout << "Crear Cita";
-	cout << "Volver-->1" << endl;
-	cout << "Inicio -->2" << endl;
-	cout << "Continuar-->3" << endl;
+	cout << "1.Volver" << endl;
+	cout << "2.Inicio" << endl;
+	cout << "3.Continuar" << endl;
 	cin >> vol;
 	switch (vol) {
 		case 1:

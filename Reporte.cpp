@@ -47,12 +47,12 @@ void paciente::reportepacientes(const string& fechainicio, const string& fechafi
 		time_t tFechaAlta = mktime(&tmFechaAlta);
 		time_t tFechaBaja = mktime(&tmFechaBaja);
 		if (tFechaAlta <= tFinal && tFechaBaja >= tInicio) {
-			cout << "ID: " << paciente["ID"] << endl;
-			cout << "Nombre: " << paciente["Nombre"] << endl;
-			cout << "Apellidos: " << paciente["Apellido1"] << " " << paciente["Apellido2"] << endl;
-			cout << "Enfermedad: " << paciente["Enfermedad"] << endl;
-			cout << "Fecha de Alta: " << paciente["Fecha alta"] << endl;
-			cout << "Fecha de Baja: " << fechabaja << endl;
+			cout << "ID del paciente" << paciente["ID"] << endl;
+			cout << "Nombre " << paciente["Nombre"] << endl;
+			cout << "Apellidos " << paciente["Apellido1"] <<  paciente["Apellido2"] << endl;
+			cout << "Enfermedad " << paciente["Enfermedad"] << endl;
+			cout << "Fecha de alta:" << paciente["Fecha alta"] << endl;
+			cout << "Fecha de baja:" << fechabaja << endl;
 			cout << "-----------------------------------------" << endl;
 			encontrado = true;
 		}
@@ -187,13 +187,45 @@ void paciente::reporteenfermedadescronicas() {
 		}
 	}
 }
-
+//Reporte doctores disponibles
+bool estadisponible(const string disponibilidad) {
+	vector<string> opcionesdisponibles={"Si", "si", "S", "s" };
+	return find(opcionesdisponibles.begin(), opcionesdisponibles.end(),disponibilidad) != opcionesdisponibles.end();
+}
+void doctor::reportedisponibilidad() {
+	ifstream archivo("doctores.json");
+	if (!archivo.is_open()) {
+		cout << "Error al abrir el archivo de doctores" << endl;
+	}
+	json doctoresjson;
+	archivo >> doctoresjson;
+	archivo.close();
+	cout << "Disponibilidad de los doctores" << endl;
+	cout << "-------------------------------------" << endl;
+	bool encontrar = false;
+	for (const auto& doctor : doctoresjson) {
+		string disponibilidad = doctor["Disponibilidad"];
+		if (estadisponible(disponibilidad)){
+		cout << "Disponibilidad" << doctor["Disponibilidad"] << endl;
+		cout << "ID del doctor" << doctor["ID"] << endl;
+		cout << "Nombre del doctor" << doctor["Nombre"] << endl;
+		cout << "Apellidos del doctor" << doctor["Apellido1"] << doctor["Apellido2"] << endl;
+		cout << "Especialidad del doctor" << doctor["Especialidad"] << endl;
+		cout << "-------------------------------------" << endl;
+		encontrar = true;
+		}
+	}
+	if (!encontrar) {
+		cout << "No hay doctores disponibles " << endl;
+	}
+}
 void menureportes() {
 	cout << "Selecciona de que quieres hacer un reporte" << endl;
 	cout << "1.Listado de pacientes por rango de fechas" << endl;
 	cout << "2.Citas pendientes por médico" << endl;
 	cout << "3.Citas pendientes por especialidad" << endl;
 	cout << "4.Reporte de pacientes con enfermedades crónicas" << endl;
+	cout << "5.Reporte de doctores disponibles" << endl;
 	int seleccion;
 	while (true) {
 		string input;
@@ -233,7 +265,13 @@ void menureportes() {
 		paciente::reporteenfermedadescronicas();
 	}
 		break;
+	case 5: {
+		doctor::reportedisponibilidad();
+	}
+		break;
 	default:
+		cout << "Elige una opción valida" << endl;
+		menureportes();
 		break;
 	}
 }

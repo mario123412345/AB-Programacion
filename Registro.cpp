@@ -10,9 +10,9 @@ void visual() {
 	int op;
     cout << "Aqui puedes ver todo el registro de pacientes/doctores/citas de seguido , si quieres buscar algo especifico ve a la opción de buscar" << endl;
 	cout << "Que quieres visualizar" << endl;
-	cout << "Pacientes --> 1" << endl;
-	cout << "Doctores --> 2" << endl;
-	cout << "Citas --> 3" << endl;
+	cout << "1.Pacientes --> 1" << endl;
+	cout << "2.Doctores --> 2" << endl;
+	cout << "3.Citas --> 3" << endl;
     while (true) {
         string input;
         cin >> input;
@@ -26,13 +26,13 @@ void visual() {
     }
     switch (op) {
         case 1:
-            registrop();
+            paciente::registrop();
             break;
         case 2:
-            registrod();
+            doctor::registrod();
             break;
         case 3:
-            registroc();
+            cita::registroc();
             break;
     default:
         cout << "Error" << endl;

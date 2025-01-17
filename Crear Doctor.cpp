@@ -10,58 +10,58 @@ void doctor::guardardoctor() const {
 		archivo.close();
 	}
 	else {
-		cout << "Error1" << endl;
+		cout << "Error al abrir el archivo de doctores.json" << endl;
 	}
 	nlohmann::json nuevodoctor = {{"ID", id},{"Nombre", nombre},{"Apellido1", apellido1},{"Apellido2", apellido2},{"Especialidad", especialidad},{"Disponibilidad", disponibilidad},{"Estado", estado},{"Salario", salario}
 	};
 	doctoresjson.push_back(nuevodoctor);
-	ofstream nuevarch("doctores.json");
-	if(nuevarch.is_open()){
-		nuevarch << doctoresjson.dump(4);
+	ofstream nuevoarchivo("doctores.json");
+	if(nuevoarchivo.is_open()){
+		nuevoarchivo << doctoresjson.dump(4);
 		cout << "Doctor creado" << endl;
 	}else{
-		cout << "Error2" << endl;
+		cout << "Error al guardar al doctor creado" << endl;
 	}
 }
-	doctor doctor::creardoctor() {
-		int id=1;
-		string nombre;
-		string apellido1;
-		string apellido2;
-		string especialidad;
-		string disponibilidad;
-		string estado;
-		double salario;
-		ifstream archivo("doctores.json");
-		json doctoresjson;
-		if (!archivo.is_open()) {
-			cout << "Error al abrir el archivo de doctores" << endl;
-		}
-		else {
-			archivo >> doctoresjson;
-			archivo.close();
-
-			if (!doctoresjson.empty()) {
-				id = doctoresjson.back()["ID"].get<int>() + 1;
-			}
-		}
-		cout << "Creando dcotor con ID: " << id << endl;
-		cout << "Nombre doctor:";
-		cin >> nombre;
-		cout << "Apellido 1 del doctor:";
-		cin >> apellido1;
-		cout << "Apellido 2 del doctor:";
-		cin >> apellido2;
-		cout << "Especialidad del doctor:";
-		cin >> especialidad;
-		cout << "Disponibilidad del doctor:";
-		cin >> disponibilidad;
-		cout << "Estado del doctor(C-Contratado/D-Despedido):";
-		cin >> estado;
-		cout << "Salario del doctor:";
-		cin >> salario;
-		return doctor(id, nombre, apellido1, apellido2, especialidad, disponibilidad, estado, salario);
+doctor doctor::creardoctor() {
+	int id=1;
+	string nombre;
+	string apellido1;
+	string apellido2;
+	string especialidad;
+	string disponibilidad;
+	string estado;
+	double salario;
+	ifstream archivo("doctores.json");
+	json doctoresjson;
+	if (!archivo.is_open()) {
+		cout << "Error al abrir el archivo de doctores" << endl;
 	}
+	else {
+		archivo >> doctoresjson;
+		archivo.close();
+
+		if (!doctoresjson.empty()) {
+			id = doctoresjson.back()["ID"].get<int>() + 1;
+		}
+	}
+	cout << "Creando dcotor con ID: " << id << endl;
+	cout << "Nombre doctor:";
+	cin >> nombre;
+	cout << "Apellido 1 del doctor:";
+	cin >> apellido1;
+	cout << "Apellido 2 del doctor:";
+	cin >> apellido2;
+	cout << "Especialidad del doctor:";
+	cin >> especialidad;
+	cout << "Disponibilidad del doctor:";
+	cin >> disponibilidad;
+	cout << "Estado del doctor(C-Contratado/D-Despedido):";
+	cin >> estado;
+	cout << "Salario del doctor:";
+	cin >> salario;
+	return doctor(id, nombre, apellido1, apellido2, especialidad, disponibilidad, estado, salario);
+}
 
 void doctorc() {
 	cout << "Creando doctror" << endl;
@@ -73,9 +73,9 @@ void CrearD() {
 	int vol;
 	cout << "----------------------------" << endl;
 	cout << "Crear Doctor";
-	cout << "Continuar -->1" << endl;
-	cout << "Inicio -->2" << endl;
-	cout << "Volver-->3" << endl;
+	cout << "1.Continuar" << endl;
+	cout << "2.Inicio" << endl;
+	cout << "3.Volver" << endl;
 	
 	cin >> vol;
 	switch (vol) {

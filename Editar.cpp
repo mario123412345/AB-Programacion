@@ -3,7 +3,7 @@
 #include "AB Programacion.h"
 
 void editar() {
-	int ed;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "¿Que quieres editar?" << endl;
 	cout << "Paciente --> 1" << endl;
@@ -14,14 +14,14 @@ void editar() {
 		string input;
 		cin >> input;
 		stringstream ss(input);
-		if (ss >> ed && ss.eof()) {
+		if (ss >> opcion && ss.eof()) {
 			break;
 		}
 		else {
 			cout << "Esscribe un numero valido ";
 		}
 	}
-	switch (ed) {
+	switch (opcion) {
 	case 1:
 		cout << "Has seleccionado editar un Paciente" << endl;
 		EditarP();

@@ -28,8 +28,7 @@ void CrearP();
 void pacientec();
 void EditarP();
 void peditar();
-void registrop();
-void buscarpaciente();
+void buscarpaciente();//Meter en clase
 //Doctores
 void EliminarD();
 void deliminar();
@@ -37,8 +36,7 @@ void CrearD();
 void doctorc();
 void EditarD();
 void deditar();
-void registrod();
-void buscardoctor();
+void buscardoctor();//Meter en clase
 //Citas
 void celiminar();
 void EliminarC();
@@ -46,20 +44,19 @@ void CrearC();
 void EditarC();
 void ceditar();
 void visual();
-void registroc();
 void citac();
 
 void creardocdetxt(const std::string& nombreArchivo);
 void backup(const string& archivooriginal);
 void restaurar(const string& archivooriginal);
-void buscarcita();
-void menureportes();
+void buscarcita();//meter en clase
+void menureportes();//Meter en clase
 bool enfermedadcronica(const string enfermedad);
 
 void citasespecialidad();
 void citaspendientes();
 class paciente {
-public:
+private:
 	int id;
 	string nombre;
 	string apellido1;
@@ -71,6 +68,7 @@ public:
 	paciente(int id, const string& nombre, const string& apellido1,const string& apellido2, const string& enfermedad,const string& fechaalta, const string& fechabaja);
 	void guardarpaciente() const;
 	static paciente crearpaciente();
+    static void registrop();
     static void eliminarpaciente(int idp);
     static void editarpaciente(int edp);
     static void reportepacientes(const string& fechainicio, const string& fechafinal);
@@ -93,6 +91,8 @@ public:
     static doctor creardoctor();
     static void eliminardoctor(int idd);
     static void editardoctor(int edd);
+    static void reportedisponibilidad();
+    static void registrod();
 };
 //Para cita meter id de la cita, fecha de la cita, id de paciente(con sus datos), id del doctor con sus datos y unz confirmación de ambos
 
@@ -108,6 +108,7 @@ public:
     static cita crearcita();
     static void eliminarcita(int idc);
     static void editarcita(int idc);
+    static void registroc();
 };
 
 //Deberia meter clase privada?
