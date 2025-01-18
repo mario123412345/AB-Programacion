@@ -7,24 +7,24 @@
 
 
 void visual() {
-	int op;
+	int opcion;
     cout << "Aqui puedes ver todo el registro de pacientes/doctores/citas de seguido , si quieres buscar algo especifico ve a la opción de buscar" << endl;
 	cout << "Que quieres visualizar" << endl;
-	cout << "1.Pacientes --> 1" << endl;
-	cout << "2.Doctores --> 2" << endl;
-	cout << "3.Citas --> 3" << endl;
+	cout << "1.Pacientes" << endl;
+	cout << "2.Doctores" << endl;
+	cout << "3.Citas" << endl;
     while (true) {
         string input;
         cin >> input;
         stringstream ss(input);
-        if (ss >> op && ss.eof()) {
+        if (ss >> opcion && ss.eof()) {
             break;
         }
         else {
             cout << "Esscribe un numero valido ";
         }
     }
-    switch (op) {
+    switch (opcion) {
         case 1:
             paciente::registrop();
             break;

@@ -6,10 +6,10 @@ void editar() {
 	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "¿Que quieres editar?" << endl;
-	cout << "Paciente --> 1" << endl;
-	cout << "Doctor --> 2" << endl;
-	cout << "Cita --> 3" << endl;
-	cout << "Inicio -->4" << endl;
+	cout << "1.Paciente" << endl;
+	cout << "2.Doctor" << endl;
+	cout << "3.Cita" << endl;
+	cout << "4.Volver al inicio" << endl;
 	while (true) {
 		string input;
 		cin >> input;

@@ -118,11 +118,21 @@ void citac() {
 void CrearC() {
 	int opcion;
 	cout << "----------------------------" << endl;
-	cout << "Crear Cita";
+	cout << "Crear Cita" << endl;;
 	cout << "1.Volver" << endl;
 	cout << "2.Inicio" << endl;
 	cout << "3.Continuar" << endl;
-	cin >> opcion;
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
 	switch (opcion) {
 		case 1:
 			crear();

@@ -73,7 +73,7 @@ void pacientec() {
 void CrearP() {
 	int opcion;
 	cout << "----------------------------" << endl;
-	cout << "Crear paciente";
+	cout << "Crear paciente" << endl;
 	cout << "1.Volver" << endl;
 	cout << "2.Inicio" << endl;
 	cout << "3.COntinuar" << endl;

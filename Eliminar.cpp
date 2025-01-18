@@ -3,26 +3,26 @@
 
 
 void eliminar() {
-	int elimi;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "¿Que quieres eliminar?" << endl;
-	cout << "Paciente --> 1" << endl;
-	cout << "Doctor --> 2" << endl;
-	cout << "Cita -->3" << endl;
-	cout << "Inicio --> 4" << endl;
+	cout << "1.Paciente " << endl;
+	cout << "2.Doctor " << endl;
+	cout << "3.Cita" << endl;
+	cout << "4.Volver al inicio " << endl;
 	cout << "¿Que quieres eliminar?" << endl;
     while (true) {
         string input;
         cin >> input;
         stringstream ss(input);
-        if (ss >> elimi && ss.eof()) {
+        if (ss >> opcion && ss.eof()) {
             break;
         }
         else {
             cout << "Esscribe un numero valido ";
         }
     }
-    switch (elimi) {
+    switch (opcion) {
         case 1:
             cout << "Has seleccionado eliminar un Paciente" << endl;
             EliminarP();

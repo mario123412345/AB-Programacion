@@ -98,14 +98,24 @@ void peditar() {
     paciente::editarpaciente(edp);
 }
 void EditarP() {
-	int vol;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "Editando paciente" << endl;
-	cout << "Volver-->1" << endl;
-	cout << "Inicio -->2" << endl;
-    cout << "Continuar -->3" << endl;
-	cin >> vol;
-    switch (vol) {
+	cout << "1.Volver" << endl;
+	cout << "2.Inicio " << endl;
+    cout << "3.Continuar " << endl;
+    while (true) {
+        string input;
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> opcion && ss.eof()) {
+            break;
+        }
+        else {
+            cout << "Esscribe un numero valido ";
+        }
+    }
+    switch (opcion) {
         case 1:
             editar();
             break;

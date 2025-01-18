@@ -50,24 +50,24 @@ void celiminar(){
     cita::eliminarcita(idc);
 }
 void EliminarC() {
-	int vol;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "Has seleccionado eliminar" << endl;
-	cout << "Volver-->1" << endl;
-	cout << "Inicio -->2" << endl;
-    cout << "Continuar-->3" << endl;
+	cout << "1.Volver a la seccion anterior" << endl;
+	cout << "2.Volver al inicio" << endl;
+    cout << "3.Continuar" << endl;
     while (true) {
         string input;
         cin >> input;
         stringstream ss(input);
-        if (ss >> vol && ss.eof()) {
+        if (ss >> opcion && ss.eof()) {
             break;
         }
         else {
             cout << "Esscribe un numero valido ";
         }
     }
-    switch (vol) {
+    switch (opcion) {
         case 1:
             eliminar();
             break;

@@ -76,15 +76,24 @@ void doctorc() {
 }
 
 void CrearD() {
-	int vol;
+	int opcion;
 	cout << "----------------------------" << endl;
-	cout << "Crear Doctor";
+	cout << "Crear Doctor" << endl;
 	cout << "1.Continuar" << endl;
 	cout << "2.Inicio" << endl;
 	cout << "3.Volver" << endl;
-	
-	cin >> vol;
-	switch (vol) {
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
+	switch (opcion) {
 		case 1:
 			doctorc();
 			break;
