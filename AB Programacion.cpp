@@ -8,6 +8,7 @@
 //Meter un buscador de pacientes/doctores
 //Arreglas que si se introduce una letra en la selección , se genera un bucle infinito
 void inicio() {
+	
 	int opcion;
 	cout << "----------------------------" << endl;
 	
@@ -72,9 +73,7 @@ int main() {
 	creardocdetxt("doctoreselim.json");
 	creardocdetxt("pacienteselim.json");
 	creardocdetxt("citaselim.json");
-	backup("doctores.json");
-	backup("pacientes.json");
-	backup("citas.json");
+	
 	restaurar("doctores.json");
 	restaurar("pacientes.json");
 	restaurar("citas.json");

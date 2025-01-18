@@ -1,7 +1,8 @@
 #include "AB Programacion.h"
 doctor::doctor(int id, const string& nombre, const string& apellido1, const string& apellido2,const string& especialidad, const string& disponibilidad, const string& estado, double salario)
-	: id(id), nombre(nombre), apellido1(apellido1), apellido2(apellido2),especialidad(especialidad), disponibilidad(disponibilidad), estado(estado), salario(salario) {
-}
+	: id(id),nombre(nombre),apellido1(apellido1),apellido2(apellido2),
+	especialidad(especialidad), disponibilidad(disponibilidad),estado(estado),salario(salario){}
+
 void doctor::guardardoctor() const {
 	ifstream archivo("doctores.json");
 	nlohmann::json doctoresjson;
@@ -12,17 +13,20 @@ void doctor::guardardoctor() const {
 	else {
 		cout << "Error al abrir el archivo de doctores.json" << endl;
 	}
-	nlohmann::json nuevodoctor = {{"ID", id},{"Nombre", nombre},{"Apellido1", apellido1},{"Apellido2", apellido2},{"Especialidad", especialidad},{"Disponibilidad", disponibilidad},{"Estado", estado},{"Salario", salario}
+	nlohmann::json nuevodoctor = { {"ID", id},{"Nombre", nombre},{"Apellido1", apellido1},{"Apellido2", apellido2},{"Especialidad", especialidad},{"Disponibilidad", disponibilidad},{"Estado", estado},{"Salario", salario}
 	};
 	doctoresjson.push_back(nuevodoctor);
 	ofstream nuevoarchivo("doctores.json");
-	if(nuevoarchivo.is_open()){
+	if (nuevoarchivo.is_open()) {
 		nuevoarchivo << doctoresjson.dump(4);
 		cout << "Doctor creado" << endl;
-	}else{
+
+	}
+	else {
 		cout << "Error al guardar al doctor creado" << endl;
 	}
 }
+
 doctor doctor::creardoctor() {
 	int id=1;
 	string nombre;
@@ -47,19 +51,21 @@ doctor doctor::creardoctor() {
 	}
 	cout << "Creando dcotor con ID: " << id << endl;
 	cout << "Nombre doctor:";
-	cin >> nombre;
+	cin.ignore();
+	getline(cin, nombre);
 	cout << "Apellido 1 del doctor:";
-	cin >> apellido1;
+	getline(cin, apellido1);
 	cout << "Apellido 2 del doctor:";
-	cin >> apellido2;
+	getline(cin, apellido2);
 	cout << "Especialidad del doctor:";
-	cin >> especialidad;
+	getline(cin, especialidad);
 	cout << "Disponibilidad del doctor:";
-	cin >> disponibilidad;
+	getline(cin, disponibilidad);
 	cout << "Estado del doctor(C-Contratado/D-Despedido):";
-	cin >> estado;
+	getline(cin, estado);
 	cout << "Salario del doctor:";
 	cin >> salario;
+	backup("doctores.json");
 	return doctor(id, nombre, apellido1, apellido2, especialidad, disponibilidad, estado, salario);
 }
 

@@ -177,6 +177,7 @@ void paciente::reporteenfermedadescronicas() {
 	archivo >> pacientesjson;
 	archivo.close();
 	cout << "Pacientes con enfermedades cronicas:" << endl;
+	cout << "-------------------------------------" << endl;
 	for (const auto& paciente : pacientesjson) {
 		string enfermedad = paciente["Enfermedad"];
 		if (enfermedadcronica(enfermedad)) {
@@ -184,6 +185,7 @@ void paciente::reporteenfermedadescronicas() {
 			cout << "Nombre" << paciente["Nombre"] << endl;
 			cout << "Apellidos" << paciente["Apellido1"] << paciente["Apellido2"] << endl;
 			cout << "Enferemdad" << paciente["Enfermedad"] << endl;
+			cout << "-------------------------------------" << endl;
 		}
 	}
 }

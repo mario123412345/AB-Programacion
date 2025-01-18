@@ -88,6 +88,8 @@ void paciente::editarpaciente(int edp) {
     cout << "Se han guardado los cambios" << endl;
     nuevarch << pacientes.dump(4);
     nuevarch.close();
+    backup("pacientes.json");
+
 }
 void peditar() {
     int edp;

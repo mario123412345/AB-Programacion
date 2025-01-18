@@ -22,6 +22,7 @@ void paciente::guardarpaciente()const {
 	if (archivosalida.is_open()) {
 		archivosalida << pacientesjson.dump(4);
 		cout << "Paciente creado correctamente" << endl;
+
 	}
 	else {
 		cout << "Error al guardar en paientes.json" << endl;
@@ -49,18 +50,19 @@ paciente paciente::crearpaciente() {
 	}
 	cout << "Creando paciente con ID: " << id << endl;
 	cout << "Nombre paciente: ";
-	cin >> nombre;
+	cin.ignore(); 
+	getline(cin, nombre);
 	cout << "Apellido 1 paciente: " << endl;
-	cin >> apellido1;
+	getline(cin, apellido1);
 	cout << "Apellido 2 paciente: " << endl;
-	cin >> apellido2;
+	getline(cin, apellido2);
 	cout << "Enfermedad paciente: " << endl;
-	cin >> enfermedad;
+	getline(cin, enfermedad);
 	cout << "Fecha baja paciente:(dia/mes/año)" << endl;
-	cin >> fechabaja;
+	getline(cin, fechabaja);
 	cout << "Fecha alta paciente:(dia/mes/año) " << endl;
-	cin >> fechaalta;
-
+	getline(cin, fechaalta);
+	backup("pacientes.json");
 	return paciente(id,nombre,apellido1,apellido2,enfermedad,fechabaja,fechaalta);
 }
 void pacientec() {
@@ -69,14 +71,24 @@ void pacientec() {
 	paciente.guardarpaciente();
 }
 void CrearP() {
-	int vol;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "Crear paciente";
 	cout << "1.Volver" << endl;
 	cout << "2.Inicio" << endl;
 	cout << "3.COntinuar" << endl;
-	cin >> vol;
-	switch (vol) {
+	while (true) {
+		string input;
+		cin >> input;
+		stringstream ss(input);
+		if (ss >> opcion && ss.eof()) {
+			break;
+		}
+		else {
+			cout << "Esscribe un numero valido ";
+		}
+	}
+	switch (opcion) {
 		case 1:
 			crear();
 			break;

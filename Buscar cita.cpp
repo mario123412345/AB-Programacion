@@ -319,5 +319,5 @@ void buscarcita() {
 		cout << "Selecciona una opción valida" << endl;
 		break;
 	}
-
+	inicio();
 }

@@ -149,6 +149,7 @@ void cita::editarcita(int idc) {
     }
     nuevoarchivo << citas.dump(4);
     nuevoarchivo.close();
+    backup("citas.json");
     cout << "La cita se ha editado y se ha guardado" << endl;
 }
 void ceditar() {

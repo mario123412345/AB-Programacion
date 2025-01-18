@@ -41,6 +41,7 @@ void cita::eliminarcita(int idc) {
     }
     cambioelim << citaselim.dump(4);
     cambioelim.close();
+    backup("citas.json");
 }
 void celiminar(){
     int idc;

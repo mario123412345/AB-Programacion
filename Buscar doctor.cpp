@@ -95,4 +95,5 @@ void buscardoctor() {
 		cout << "Selecciona una opción valida" << endl;
 		break;
 	}
+	inicio();
 }

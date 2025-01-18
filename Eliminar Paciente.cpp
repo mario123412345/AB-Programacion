@@ -41,6 +41,7 @@ void paciente::eliminarpaciente(int idp) {
     }
     cambiodep << pacienteselim.dump(4);
     cambiodep.close();
+    backup("pacientes.json");
 }
 void peliminar() {
     int idp;

@@ -50,7 +50,7 @@ void creardocdetxt(const std::string& nombreArchivo);
 void backup(const string& archivooriginal);
 void restaurar(const string& archivooriginal);
 void buscarcita();//meter en clase
-void menureportes();//Meter en clase
+void menureportes();
 bool enfermedadcronica(const string enfermedad);
 
 void citasespecialidad();
@@ -76,7 +76,7 @@ public:
 };
 
 class doctor {
-public:
+private:
     int id;
     string nombre;
     string apellido1;
@@ -97,6 +97,7 @@ public:
 //Para cita meter id de la cita, fecha de la cita, id de paciente(con sus datos), id del doctor con sus datos y unz confirmación de ambos
 
 class cita {
+private:
     int id;
     string fecha;
     string hora;

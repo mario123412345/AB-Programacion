@@ -99,4 +99,5 @@ void buscarpaciente() {
 		cout << "Selecciona una opción valida" << endl;
 		break;
 	}
+	inicio();
 }

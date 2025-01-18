@@ -40,6 +40,7 @@ void doctor::eliminardoctor(int idd) {
     }
     cambioelim << doctoreselim.dump(4);
     cambioelim.close();
+    backup("doctores.json");
 }
 void deliminar() {
     int idd;

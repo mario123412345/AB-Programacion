@@ -49,7 +49,7 @@ cita cita ::crearcita() {
 	cout << "ID del paciente de la cita: " << endl;
 	cin >> idp;
 		ifstream paciente("pacientes.json");
-		if (paciente.is_open()) {
+		if (!paciente.is_open()) {
 			cout << "Error con el archivo de pacientes" << endl;
 		}
 		json pacientesjson;
@@ -78,7 +78,7 @@ cita cita ::crearcita() {
 	cout << "ID del doctor de la cita: " << endl;
 	cin >> idd;
 		ifstream doctor("doctores.json");
-		if (doctor.is_open()) {
+		if (!doctor.is_open()) {
 			cout << "Error con el archivo de doctores" << endl;
 		}
 		json doctoresjson;
@@ -107,21 +107,23 @@ cita cita ::crearcita() {
 	//Poner algun condicionante que no permita poner a cualquier doctor con cualquier paciente en la cita
 	cita nuevacita(id, fecha, hora, idp, idd);
 	nuevacita.guardarcita();
+	backup("citas.json");
 	return nuevacita;
+	
 }
 void citac() {
 	cout << "Creando cita" << endl;
 	cita nuevaCita = cita::crearcita();
 }
 void CrearC() {
-	int vol;
+	int opcion;
 	cout << "----------------------------" << endl;
 	cout << "Crear Cita";
 	cout << "1.Volver" << endl;
 	cout << "2.Inicio" << endl;
 	cout << "3.Continuar" << endl;
-	cin >> vol;
-	switch (vol) {
+	cin >> opcion;
+	switch (opcion) {
 		case 1:
 			crear();
 			break;

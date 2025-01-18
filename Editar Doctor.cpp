@@ -91,6 +91,7 @@ void doctor::editardoctor(int edd) {
     }
     nuevarch << doctores.dump(4);
     nuevarch.close();
+    backup("doctores.json");
     cout << "Se han guardado los cambios del doctor" << endl;
 }
 void deditar() {
